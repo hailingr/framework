@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="../layui/css/layui.css" rel="stylesheet" />
+    <script src="../jquery-1.10.2.min.js"></script>
+    <script src="../layui/layui.js"></script>
+</head>
+<body>
+    <div class="layui-btn-group">
+        <a class="layui-btn" lay-filter="edit">编辑行</a>
+        <a class="layui-btn" lay-filter="endEdit">结束编辑行</a>
+        <a class="layui-btn" lay-filter="editAll">编辑表格</a>
+        <a class="layui-btn" lay-filter="endEditAll">结束编辑表格</a>
+    </div>
+    <div id="demo" class="grid">
+    </div>
+    <script id="view" type="text/html">
+        <table class="layui-table">
+            <thead>
+                <tr>
+                    <th style="width:20px;"><input type="checkbox" /></th>
+                    <th style="width:20px;">No</th>
+                    <th>组织结构</th>
+                    <th>名称</th>
+                    <th>编号</th>
+                    <th style="width:70px;">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{# layui.each(d.rows,function(i,r){ }}
+                <tr>
+                    <td class="text-center"><input type="checkbox" /></td>
+                    <td class="text-center">{{i+1}}</td>
+                    <td>{{r.title}}</td>
+                    {{# if(d.op=='edit'){ }}
+                    <td class="edit"><input type="text" value="{{r.name}}" name="name" /></td>
+                    <td class="edit"><input type="text" value="{{r.code}}" name="code" /></td>
+                    <td class="text-center">
+                        <a class="layui-btn layui-btn-small layui-btn-danger" href="javascript:fn.endEdit()"><i></i>结束编辑</a>
+                    </td>
+                    {{# }else{ }}
+                    <td>{{r.name}}</td>
+                    <td>{{r.code}}</td>
+                    <td class="text-center">
+                        <a class="layui-btn layui-btn-small layui-btn-normal" href="javascript:fn.edit()"><i></i>编辑</a>
+                    </td>
+                    {{# } }}
+                </tr>
+                {{# }); }}
+            </tbody>
+        </table>
+    </script>
+    <script>
+        var fn = {
+        };
+        layui.config({
+            base: '../extend/'
+        }).use(['laytpl', 'grid'], function () {
+            var laytpl = layui.laytpl,
+                grid = layui.grid;
+            grid.config.render = function (viewid, data) {
+                var view = document.getElementById(viewid).innerHTML;
+                return laytpl(view).render(data) || '';
+            };
+
+            var id = 1;
+            var rows = [];
+            for (var i = 1; i <= 10; i++) {
+                rows.push({
+                    id: id,
+                    pid: 0,
+                    title: '分公司' + i,
+                    name: 'CEO' + i,
+                    code:id,
+                    remark: ''
+                });
+                id++;
+            }
+
+            var grid1=grid.createNew({
+                elem: 'demo',
+                view: 'view',
+                data: { rows: rows },
+                parentid: 'pid',
+                singleSelect: true
+            });
+            grid1.build();
+
+            $('.layui-btn').on('click', function () {
+                var index = grid1.getIndex();
+                switch ($(this).attr('lay-filter')) {
+                    case 'edit': {
+                        grid1.edit(index);
+                    } break;
+                    case 'endEdit': {
+                        grid1.endEdit(index);
+                    } break;
+                    case 'editAll': {
+                        grid1.edit();
+                    } break;
+                    case 'endEditAll': {
+                        grid1.endEdit();
+                    } break;
+                }
+            });
+
+            fn = {
+                edit: function () {
+                    var index = grid1.getIndex();
+                    grid1.edit(index);
+                },
+                endEdit: function () {
+                    var index = grid1.getIndex();
+                    grid1.endEdit(index);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

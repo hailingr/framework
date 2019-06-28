@@ -1,0 +1,51 @@
+.bee-user-face {
+    width:40px;
+    margin-right:8px;
+    position: relative;
+    border-radius:20px ;
+    top:3px;
+}
+
+.bee-user-name {
+    color:#3f3f3f;
+    font-size:16px;
+    line-height: 46px;
+}
+.bee-user-time {
+    float: right;
+    font-size: 12px;
+    color: #999;
+    font-weight: normal;
+}
+.bee-user-think {
+    padding: 0 15px 0 15px;
+    font-size: 15px;
+    color: #3f3f3f
+}
+.bee-msg-status {
+    padding-left: 15px;
+    color: #09b611;
+    font-size: 13px;
+    padding-bottom:10px;
+}
+.bee-no-user {
+    text-align: center;
+    font-weight:500;
+    color: #999
+}
+.bee-find-btn {
+    padding:7px 25px;
+    margin:35px auto 0;
+    color:#fff;
+    border-radius:4px;
+    font-size: 15px;
+    background: #3f3f3f;
+    border: 1px solid #3f3f3f
+}
+.weui_cell{
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+.weui_cells{
+    margin-top: 10px;
+}

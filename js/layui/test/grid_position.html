@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <meta charset="utf-8" />
+    <link href="../layui/css/layui.css" rel="stylesheet" />
+    <style type="text/css">
+        html, body {
+            width:100%;
+            height:100%;
+            margin:0;
+            padding:0;
+        }
+    </style>
+    <script src="../jquery-1.10.2.min.js"></script>
+    <script src="../layui/layui.js"></script>
+</head>
+<body>
+    <div style="position:relative;height:100%;width:100%;">
+        <div style="line-height:20px;">
+            grid1的Top参考值为它的上一个元素，grid2、grid3的TOp参考值为grid1,grid4的Top参考值为grid3,改变浏览器窗口大小试一试;
+        </div>
+        <div id="demo1" class="grid grid-position" style="bottom:auto;height:200px;"></div>
+        <div id="demo2" class="grid" style="right:auto;bottom:205px;width:400px;"></div> 
+        <div id="demo3" class="grid grid-position" style="left:410px;bottom:205px;"></div>
+        <div id="demo4" class="grid"></div>
+    </div>
+    <script id="view" type="text/html">
+        <table class="layui-table">
+            <thead>
+                <tr>
+                    <th style="width:20px;"><input type="checkbox" /></th>
+                    <th style="width:20px;">No</th>
+                    <th>组织结构</th>
+                    <th>名称</th>
+                    <th>编号</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{# layui.each(d.rows,function(i,r){ }}
+                <tr>
+                    <td class="text-center"><input type="checkbox" /></td>
+                    <td class="text-center">{{i+1}}</td>
+                    <td>{{r.title}}</td>
+                    <td>{{r.name}}</td>
+                    <td>{{r.code}}</td>
+                </tr>
+                {{# }); }}
+            </tbody>
+        </table>
+    </script>
+    <script>
+        layui.config({
+            base: '../extend/'
+        }).use(['laytpl', 'grid'], function () {
+            var laytpl = layui.laytpl,
+                grid = layui.grid;
+            grid.config.render = function (viewid, data) {
+                var view = document.getElementById(viewid).innerHTML;
+                return laytpl(view).render(data) || '';
+            };
+
+            var id = 1;
+            var rows = [];
+            for (var i = 1; i <= 99; i++) {
+                rows.push({
+                    id: id,
+                    title: '分公司' + i,
+                    name: 'CEO' + i,
+                    code: id,
+                    remark: ''
+                });
+                id++;
+            }
+
+            for (var i = 1; i <= 4; i++) {
+                grid.createNew({
+                    elem: 'demo' + i,
+                    view: 'view',
+                    data: { rows: rows },
+                    parentid: 'pid',
+                    pageSize: 20,
+                    pageGroup: i == 2 ? 0 : 5,
+                    singleSelect: true,
+                }).build();
+            }
+        });
+    </script>
+</body>
+</html>

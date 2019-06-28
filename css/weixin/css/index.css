@@ -1,0 +1,118 @@
+/* CSS Document */
+/*#_contain{ margin-bottom:2rem;}*/
+.logo-dbs{ position:absolute; bottom:1rem; left:3rem;}
+.banner{ position:relative; width:12.42rem; height:6.6rem; overflow:hidden;}
+.banner img{ width:12.42rem; height:14.6rem;}
+.menu{ width:12.42rem;}
+.menu .nav{ float:left; height:2.2rem; margin:0.43rem 0.51rem 0 1.04rem; overflow:hidden; font-size:0.4rem; text-align:center;}
+.menu .nav img{ width:1.42rem; }
+.menu .nav p{ font-size:0.5rem;}
+.name{ width:12.42rem; height:2.5rem; font-size:0.38rem; line-height:1.3rem; border-bottom:1px solid #FF8000;}
+.name p{ margin-left:0.47rem;}
+.contain{ width:12.14rem; height:100%; margin:0 0.14rem; overflow:hidden;}
+.ad{ width:12.14rem; height:5rem; margin-top:0.3rem;}
+.ad img{ width:12.14rem; height:5rem;}
+.ad-left ,.add-right{ float:left; width:5.92rem; height:3.8rem; margin-top:0.3rem; overflow:hidden;}
+.ad-left{ margin-right:0.3rem;}
+.ad-left img,.add-right img{ width:5.92rem; height:3.8rem;}
+.favorable{ width:12.42rem; height:100%; overflow:hidden; background: #EDEDED;padding-bottom: 10px;}
+.fb:nth-child(odd){ float:left; background: #EDEDED!important; width:6.18rem; height:6.8rem; background: white; overflow:hidden;}
+.fb:nth-child(even){ float:left; width:6.18rem; background: #EDEDED!important; height:6.8rem; background: white; overflow:hidden;}
+.cbr{ border-right:none;}
+.fb-lt{ width:5.9rem; height:6.5rem; margin:0.3rem 0.14rem 0 0.14rem; background: white}
+.fb-lt img{ width:5.9rem; height:3.8rem; display:block;}
+.fb-lt p{}
+.fb-lt p.fb-name{ margin-top:0.1rem; font-size:0.42rem; height: 1.1rem;margin-left: 2%; margin-right: 2%; font-family: "Microsoft YaHei"}
+/*.fb-lt p.price{ margin-top:0.2rem; margin-left: 7px;}*/
+.fb-lt p span{ font-size:0.42rem; color:#999;}
+.fb-lt p span.discount{ float:left; margin:0.2rem 0 0 0.5rem; color:#f46b29;}
+/*.fb-lt p span.num{ padding-left: 4%}*/
+.fb-lt p span big{ font-size:0.6rem; color:#ff4931;}
+.more{ width:12.42rem; height:1.37rem; line-height:1.37rem; text-align:center; cursor:pointer;}
+.more p{ font-size:0.4rem; color:#0080FF; background: #E0E0E0;}
+.more p img{ width:0.2rem; height:0.33rem; margin-left:0.2rem;}
+.time{float: left; color: #E0E0E0; padding-bottom: -5.5%;}
+.price img{width: 0.45rem; height: 0.45rem; float: left; padding-top: 0.07rem}
+.foot.active{color: #0894ec;}
+.name ul li{ margin-left: 25px; margin-bottom: -13px; float: left!important; font-weight: bold; color: #2D49A8;}
+.zhou{ text-align: center; padding-top: 10px; color: #FFFFFF; font-size: 25px; background: #3E8A8B;}
+/*.price1{ line-height: 0; padding-top: 10%; margin-left: 7px;}*/
+/*.fb-lt a p{color: #FF8000}*/
+.num3 input{ border-radius: 15px; font-size: 15px; margin-left: 1%;font-weight: bold;border-style:none; padding: 1%; background: #FF8000; color: white; margin-bottom: 1%}
+.num3{background: #EDEDED}
+
+.hot_list { width: 100%; }
+.hot_item:first-child { margin-top: 0; }
+.hot_item { width: 100%; height: auto; background-color: #fff; margin: 10px 0px!important; }
+.pro_info { height: auto; position: relative; min-height: 60px; }
+.departrueLable { background-color: rgba(0, 0, 0, 0.6); position: absolute; left: 10px; top: 10px; padding: 2px 10px; border-radius: 20px; -webkit-border-radius: 20px; -moz-border-radius: 20px; color: #fff; font-size: 12px; }
+.pro_img { width: 100%; height: auto; }
+.bgWhite { background-color: #ffffff !important; }
+.bgWhite { background-color: #fff !important; }
+.priceLable { vertical-align: bottom; font-size: 12px; color: #fff; display: inline-block; position: absolute; bottom: 20px; right: 0; max-width: 100px; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;  }
+.p_name { font-size: 16px; }
+.bgMain { background-color: #ff7e1d !important; }
+.original .price { font-size: 20px; }
+/*轮播CSS开始*/
+.banner { position: relative; overflow: auto; }
+.banner li { list-style: none; }
+.banner ul li { float: left; }
+.banner .dots li {display: inline-block; width: 10px; height: 10px; margin: 0 4px; text-indent: -999em; border: 2px solid #fff; border-radius: 6px; cursor: pointer; opacity: .4; -webkit-transition: background .5s, opacity .5s; -moz-transition: background .5s, opacity .5s; transition: background .5s, opacity .5s;
+}
+.banner .dots { position: absolute; left: 0; right: 0; bottom: 20px; }
+.banner { position: relative; width: 100%; overflow: auto; font-size: 18px; line-height: 24px; text-align: center; color: rgba(255,255,255,.6); text-shadow: 0 0 1px rgba(0,0,0,.05), 0 1px 2px rgba(0,0,0,.3); background: #5b4d3d; box-shadow: 0 1px 2px rgba(0,0,0,.25);}
+.banner .dots li.active {background: #fff; opacity: 1; }
+/*轮播CSS结束*/
+
+/*修改了部分css*/
+.price{height: 0.7rem; line-height: 0.7rem; padding-left: 1%; padding-right: 2%; position: absolute; }
+.price1{width: 96%; height: 0.8rem; line-height: 1.1rem; padding-left: 2%; overflow: hidden; padding-right: 2%; margin-top: 16px; overflow-x: auto;}
+.typeName{float: left;}
+.num{float: left}
+.fb-name{line-height: 1.3; overflow-y: hidden}
+.time{float: left;}
+
+
+.item-type {
+    /*top: 0;*/
+    /*left: 0;*/
+    padding-left: 5px;
+    height: 18px;
+    background: red;
+    text-align: left;
+    line-height: 18px;
+    background-size: cover;
+    font-size: 10px;
+    color: #fff;
+    position: absolute;
+}
+.item-type span {
+    position: absolute;
+    border-width: 9px 8px;
+    border-style: solid;
+    right: -16px;
+    top: 0px;
+    border-color: red transparent transparent red;
+}
+.comboName{
+    /*top: 0;*/
+    /*left: 0;*/
+    max-width: 60px;
+    padding-left: 5px;
+    height: 18px;
+    background: green;
+    text-align: left;
+    line-height: 18px;
+    background-size: cover;
+    font-size: 10px;
+    color: #fff;
+    position: absolute;
+}
+.comboName .comboNameSpan {
+    position: absolute;
+    border-width: 9px 8px;
+    border-style: solid;
+    right: -16px;
+    top: 0px;
+    border-color: green transparent transparent green;
+}

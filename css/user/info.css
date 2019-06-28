@@ -1,0 +1,12 @@
+.ibox-content{
+    padding: 35px;
+}
+
+.ibox-content p{
+    font-size: 16px;
+    line-height: 25px;
+}
+.control-label{
+    margin-top: 10px;
+    width: 103px;
+}

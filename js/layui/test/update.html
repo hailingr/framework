@@ -1,0 +1,285 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="../layui/css/layui.css" rel="stylesheet" />
+    <style type="text/css">
+        body {
+            padding:0 100px 200px;
+        }
+        .demo-text p {
+            margin-bottom: 10px;
+            line-height: 22px;
+            padding: 0 10px;
+            line-height: 22px;
+            
+        letter-spacing:.5px;
+        }
+        * {
+            font-size:14px;
+        }
+    </style>
+    <script src="../jquery-1.10.2.min.js"></script>
+    <script src="../layui/layui.js"></script>
+</head>
+<body>
+    <blockquote class="layui-elem-quote">
+        表单form:
+    </blockquote>
+    <div class="demo-text">
+        <p>
+            1、为form.render()添增加了一个参数fm(jquery对象),若fm不为空，则只渲染fm中的元素。<br />
+            如：<br />
+            form.render('select',$('form.demo')) 只渲染类名为demo的form中的select,<br />
+            form.render($('form.demo')) 渲染类名为demo的from中的所有元素<br />
+            对于select,多次渲染只更新dl中的元素，不再重新生成整个dom,为输入框绑定的事件将不会被抹去。
+        </p>
+    </div>
+    <div class="demo-text">
+        <p>
+            2、为select添加了方向键操作,并增加了search事件,用于搜索时从后台读取数据更新下拉框，参数在select事件基础上增加了options回调函数
+        </p>
+    </div>
+    <div class="layui-form">
+        <div class="layui-inline">
+            <label class="layui-form-label">试一试</label>
+            <div class="layui-inline">
+                <select lay-filter="select1" lay-search>
+                    <option value="">输入文字动态更新</option>
+                    <option value="">--</option>
+                    <option value="1">a</option>
+                    <option value="1">b</option>
+                    <option value="1">c</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <pre class="layui-code">
+form.on('search(select1)', function (data) {
+    var txt = data.value;
+    var options = [];
+    for (var i = 1; i <= Math.random() * 10; i++) {
+        options.push({
+            value: i,
+            text: txt + i
+        });
+    };
+    data.options(options);
+});
+    </pre>
+    <div class="demo-text">
+        <p>3、若select包含属性lay-fixed,select选择列表固定在浏览器窗口中。</p>
+    </div>
+    <a class="layui-btn" id="btn_fixed">试一试</a>
+    <script id="fm_fixed" type="text/html">
+        <div class="layui-form">
+            <div class="layui-inline">
+                <label class="layui-form-label">一般模式</label>
+                <div class="layui-inline">
+                    <select>
+                        <option>--</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                    </select>
+                </div>
+                <label class="layui-inline" style="margin-left:50px;">固定</label>
+                <div class="layui-inline">
+                    <select lay-fixed>
+                        <option>--</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>77777777777777777777777777777</option>
+                        <option>8</option>
+                        <option>9</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </script>
+
+
+
+    <div class="demo-text">
+        <p>
+            4、复选框name相同，表单提交后获取的数据为一个英文逗号分隔的字符串
+        </p>
+    </div>
+    <form class="layui-form">
+        <div class="layui-inline">
+            <label class="layui-form-label">试一试</label>
+            <div class="layui-inline">
+                <input type="checkbox" name="like" checked value="看书" title="看书" />
+                <input type="checkbox" name="like" checked value="写代码" title="写代码" />
+                <input type="checkbox" name="like" value="画画" title="画画" />
+            </div>
+            <div class="layui-inline"><a class="layui-btn" lay-submit lay-filter="checkbox">提交</a></div>
+        </div>
+    </form>
+
+    <hr />
+
+
+    <blockquote class="layui-elem-quote">
+        选项卡tab:
+    </blockquote>
+    <div class="demo-text">
+        <p>
+            1、为tab 增加了属性no-close,选项卡不可关闭，并修改了addTab方法
+        </p>
+        <p>
+            2、为tab增加了关闭事件监听 element.on('closetab(demo)');
+        </p>
+    </div>
+    <div>
+        <a class="layui-btn" id="btn_tab">添加</a>
+    </div>
+    <div class="layui-tab layui-tab-card" lay-allowClose="true" lay-filter="tabs">
+        <ul class="layui-tab-title">
+            <li class="layui-this" no-close>首页</li>
+            <li>tab2</li>
+            <li>tab3</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">首页</div>
+            <div class="layui-tab-item">
+                tab2,本页关闭提示
+                <input type="hidden" name="status" value="0" />
+            </div>
+            <div class="layui-tab-item">tab3</div>
+        </div>
+    </div>
+    <pre class="layui-code" lay-encode="true" lay-title="html">
+<div class="layui-tab layui-tab-card" lay-allowClose="true" lay-filter="tabs">
+    <ul class="layui-tab-title">
+        <li class="layui-this" no-close>首页</li>
+        <li>tab2</li>
+        <li>tab3</li>
+    </ul>
+    <div class="layui-tab-content">
+        <div class="layui-tab-item layui-show">首页</div>
+        <div class="layui-tab-item">
+            tab2,本页关闭提示
+            <input type="hidden" name="status" value="0" />
+        </div>
+        <div class="layui-tab-item">tab3</div>
+    </div>
+</div>
+</pre>
+    <pre class="layui-code" >
+//添加一个不可关闭的标签页
+element.tabAdd('tabs', {
+    title: '首页',
+    id: 'home',
+    close: false,  //不可关闭
+    content: '首页'
+});
+<br />
+//监听tab关闭
+element.on('closetab(tabs)', function (data) {
+    var status=data.content.find('input[name="status"]');
+    if (status.length>0 && status.val()==0) {
+        layer.confirm('页面操作未完成，确认关闭?', {
+            title: '提示',
+            icon: 3
+        }, function (index) {
+            element.tabDelete('tabs', data.id);
+            layer.close(index);
+        });
+        return false;
+    }
+    return true;
+});
+</pre>
+
+    <blockquote class="layui-elem-quote">
+        弹层layer:
+    </blockquote>
+    <div class="demo-text">
+        <p>
+            弹层后，弹出的层将获取焦点，若焦点在按钮上，可使用左右方向键或tab键切换。
+        </p>
+    </div>
+    <a class="layui-btn" onclick="layer.alert('按Tab或左右方向键试试', {btn:['确定','取消']});">试一试</a>
+    <a class="layui-btn" onclick="layer.prompt();">prompt</a>
+
+
+    <script>
+        layui.use(['form', 'laytpl','code', 'layer', 'element'], function () {
+            var form = layui.form(),
+                layer = layui.layer,
+                element = layui.element(),
+                laytpl = layui.laytpl;
+
+            layui.code();
+
+            form.on('search(select1)', function (data) {
+                var txt = data.value;
+                var options = [];
+                for (var i = 1; i <= Math.random() * 10; i++) {
+                    options.push({
+                        value: i,
+                        text: txt + i
+                    });
+                };
+                data.options(options);
+            });
+
+            $('#btn_fixed').on('click', function () {
+                layer.open({
+                    type: 1,
+                    title: '拖动到右下角再试试',
+                    area: ['630px', '150px'],
+                    content: laytpl($('#fm_fixed').html()).render({}),
+                    success: function (layero) {
+                        form.render(layero);
+                    }
+                });
+            });
+
+            form.on('submit(checkbox)', function (data) {
+                layer.alert(JSON.stringify(data.field, null, 4));
+            });
+
+            var tbidx = 3;
+            $('#btn_tab').on('click', function () {
+                element.tabAdd('tabs', {
+                    title: 'tab' + tbidx,
+                    id: tbidx,
+                    close: false,
+                    content: 'tab' + tbidx
+                });
+                tbidx++;
+            });
+
+
+            element.on('closetab(tabs)', function (data) {
+                var status = data.content.find('input[name="status"]');
+                if (status.length > 0 && status.val() == 0) {
+                    layer.confirm('页面操作未完成，确认关闭?', {
+                        title: '提示',
+                        icon: 3
+                    }, function (index) {
+                        element.tabDelete('tabs', data.id);
+                        layer.close(index);
+                    });
+                    return false;
+                }
+                return true;
+            });
+        });
+    </script>
+</body>
+</html>

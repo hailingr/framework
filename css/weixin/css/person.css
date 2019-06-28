@@ -1,0 +1,18 @@
+/* CSS Document */
+.head{ position:relative; width:12.42rem; height:5rem; overflow:hidden; background:url(/images/weixin/images/person/bei_top.jpg) no-repeat; background-size:12.42rem 6.62rem; color:#fff;}
+.head .head-img{ text-align:center; }
+.head .head-img img{ width:2.6rem; height:2.6rem;}
+.head .head-img p{ width:2.4rem; height:0.65rem; line-height:0.65rem; overflow:hidden; font-size:0.43rem;}
+.head .head-img p span{ width:1.2rem; text-align:center;}
+.head .head-img p span.line{ border-right:1px solid #b8b0aa; margin-right:0.25rem; padding-right:0.25rem;}
+.logo-dbs{ position:absolute; bottom:0.35rem; left:3.2rem;}
+.head .bt{ position:absolute; bottom:0; left:0.4rem; width:11.62rem; height:1.15rem; text-align:center; border-top:1px solid #b8b0aa; overflow:hidden;}
+.head .bt p{ float:left; width:5.78rem; height:0.65rem; line-height:0.65rem; text-align:center; margin: 0.3rem 0; font-size:0.42rem;}
+.head .bt p.bt-lf{ border-right:1px solid #b8b0aa; }
+.whe{ width:12.42rem; height:2.4rem; margin-top:0.25rem; border:1px solid #e5e5e5; border-left:none; border-right:none; overflow:hidden;}
+.whe .whe-lt{ float:left; width:6.18rem; height:1.4rem; text-align:center; font-size:0.4rem; margin:0.45rem 0;}
+.whe .whe-br{ border-right:1px solid #e1e1e1;}
+.whe .whe-lt p.lf-tp{}
+.whe .whe-lt p.lf-tp img{ width:0.71rem; height:0.65rem; vertical-align:middle; margin-right:0.3rem;}
+.whe .whe-lt p.lf-bt{ margin-top:0.4rem; color:#aeaeae;}
+.whe .whe-lt p.lf-bt span{ margin:0 0.18rem;}

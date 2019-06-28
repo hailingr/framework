@@ -1,0 +1,1 @@
+D:\phpStudy\php55n\php.exe D:\www\mapi.u6u.com\msg.php

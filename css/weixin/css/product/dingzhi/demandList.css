@@ -1,0 +1,131 @@
+body,html,header,.bottom_share{max-width: 640px;margin: auto;background:#f4f4f4;height: 100% }
+a{  -webkit-tap-highlight-color:transparent}
+/*会员页面基础css*/
+.header {
+    height: 44px;
+    color: #fff;
+    background: #ff8000;
+    font-size: 16px;
+    position: relative;
+    text-align: center;
+    z-index: 4
+}
+.header .title{
+    font-size: 16px;
+    line-height: 44px;
+}
+.header img {
+    width: 21px;
+    position: absolute;
+    left: 10px;
+    top: 12px
+}
+.header a {
+    color: #fff;
+    -webkit-tap-highlight-color:transparent
+}
+.header a:active {
+    background: none
+}
+
+.weui_icon_info_circle:before {
+    font-size: 60px;
+    color: #888888;
+}
+.text-over{
+    overflow: hidden;text-overflow: ellipsis;white-space: nowrap
+}
+.yd-demand-hd{
+    padding-right: 8px;padding-left: 8px;
+}
+.yd-demand-hd:after{
+   left: 0;
+}
+.yd-orderList-btn {
+    padding: 6px 8px;
+    background: #fff;
+    border: 1px solid #DDDDDD;
+    border-radius: 2px;
+    color: #FF8000;
+    float: right;
+    margin-right: 10px;
+}
+
+/*我的定制需求列表 yd-demand- */
+.yd-demand-city{
+    font-size: 14px;color: #333;
+}
+
+.yd-demand-date{
+    width: 80px;position: absolute;top: 33px;background: #fff;font-size: 18px;
+}
+.yd-demand-people{
+    width:100%;text-align: center;border-bottom: 1px solid #ccc;font-size: 12px;height: 24px;line-height: 24px;color: #666
+}
+.yd-demand-price{
+    color: #ff8000;font-size: 14px;
+}
+.yd-demand-isDo{
+    color: #028800;font-size: 14px;float: right
+}
+
+/*我的定制需求详情 .yd-mDemand- */
+.yd-mDemand-text1{
+
+}
+.yd-mDemand-text2{
+    font-size: 14px!important;line-height: 28px!important;
+}
+.yd-mDemand-color3{
+    color: #333;
+}
+.yd-mDemand-color6{
+    color: #666;
+}
+.yd-list-text {
+    color: #333;
+    font-size: 14px;
+}
+
+.yd-list-title {
+    color: #666;
+    font-size: 14px;
+}
+.yd-btn-detail{
+    float: right;
+    line-height: 28px;
+    color: #4FC68C;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+/*订单填写底部*/
+.submintFix{ height:60px;}
+.submintFix dl{ display:-webkit-box; height:60px; font-size:1.5rem; position:fixed; left:0; bottom:0; width:100%; background:#fff; z-index:10; box-shadow:0 0 40px rgba(0,0,0,0.1);}
+.submintFix dt{ display:flex; justify-content:center; flex-direction:column; -webkit-box-flex:1; box-flex:1; width:0;}
+.submintFix dt .price{ display:inline-block; position:relative; padding:0 15px; font-size:14px; color:#555;}
+.submintFix dt .price span{padding:0 10px; color:#f70;}
+.submintFix dt .price span em{ font-size:16px;font-style: normal;}
+.submintFix dt .price i.arrow{ position: absolute; top:50%; right:20px; content: ''; position: absolute; margin:-8px 0 0 -5px; width:8px; height:8px; border-top: 1px solid #333; border-right: 1px solid #333; -webkit-transform: rotate(135deg); transform: rotate(135deg); }
+.submintFix dt .price i.arrow.on{ margin:-2px 0 0 -5px; -webkit-transform: rotate(-45deg); transform: rotate(-45deg);}
+.submintFix dd{ display:flex; justify-content:center; flex-direction:column;}
+.submintFix dd.sbmFix{ width:7rem;}
+.submintFix dd.sbmFix button{ width:7rem; line-height:60px; background:#ff9100; font-size:16px; color:#fff; text-align:center; border:0; outline:0;}
+.submintFix .arrow{}
+
+/*预订须知*/
+.booking_notes{ padding:15px 15px;}
+.booking_notes label{ font-size:14px;color: #333}
+.booking_notes label i{ display:inline-block; width:16px; height:16px; margin:-2px 5px 0 0; border:1px solid #e0e0e0; background:#fff; background-size:16px 16px; border-radius:50%; vertical-align:middle;}
+.booking_notes label i.on{ background:url(/img/v2.0/gou.png) no-repeat 2px 4px #00bf4b; border-color:#00bf4b; background-size:12px 9px;}
+.booking_notes a{ display:inline-block; margin-left:5px; color:#12a0ea; font-size:14px;}
+.booking_notes p{ display:block; padding:8px 0 0 0; color:#999;font-size: 12px;}
+
+.notes_con{ display:none; position:fixed; top:0px; bottom:0; left:0; width:100%; background:#aaa; background:rgba(0, 0, 0, 0.8); z-index:1000;}
+.notes_con .text_con{ margin:14px; padding:14px 10px; color:#fff;}
+.notes_con a.close{ position:absolute; top:10px; right:15px; width:1px; height:20px; background:#FFFFFF; -webkit-transform:rotate(45deg); display:inline-block;}
+.notes_con a.close:after{ content:''; width:1px; height:20px; background:#FFFFFF; position:absolute; left:0; top:0; -webkit-transform:rotate(-90deg); display:inline-block;}
+
+.notes_con .text_con strong{ display:block; font-size:16px; text-align:center; color:#fff;}
+.notes_con .text_con b{ display:block; padding:15px 0 5px 0; font-size:14px; color:#fff;}
+.notes_con .text_con p{ display:block; padding:5px 0; line-height:20px; color:#e3e3e3;}

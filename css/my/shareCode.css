@@ -1,0 +1,24 @@
+.bee-user-con {
+    text-align: center;
+    padding:24px 5%;
+}
+.bee-user-name {
+    font-size: 18px;
+    color: #333;
+}
+.bee-role-describe {
+    font-size: 15px;
+    color: #999
+}
+.bee-user-describe {
+    text-align: left;
+    color: #333;
+    font-size: 15px;
+}
+.bee-code-con {
+    margin: 15px auto
+}
+.bee-code-tips {
+    font-size: 15px;
+    color: #999
+}

@@ -1,0 +1,29 @@
+﻿############################
+## url重写规则
+## 可以理解为将原有参数中的“?m=”和”&a=“替换为“/”
+## Eg：http://xxx.com/?m=test&a=create > http://xxx.com/test/create
+## 海林<hailingr@foxmail.com>
+## nginx url重新配置
+## if (!-d $request_filename){
+##		set $rule_0 1$rule_0;
+## }
+## if (!-f $request_filename){
+##		set $rule_0 2$rule_0;
+## }
+## if ($rule_0 = "21"){
+##		rewrite ^/(.*)$ /index.php?_PATHINFO_=$1 last;
+## }
+############################
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+
+#+------------------------------------------------------------------------------------------------------------------------
+# 定向到首页
+#######################
+RewriteRule ^(.*)$ index.php?_PATHINFO_=$1 [QSA,PT,L]
+
+#+------------------------------------------------------------------------------------------------------------------------
+# 其他处理规则
+#######################

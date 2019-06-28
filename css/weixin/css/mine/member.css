@@ -1,0 +1,59 @@
+
+body,html{max-width: 440px;margin: auto;background:#f4f4f4;height: 100% }
+
+/*会员页面基础css*/
+.header {
+    height: 44px;
+    color: #fff;
+    background: #ff8000;
+    font-size: 16px;
+    position: relative;
+    text-align: center;
+    z-index: 4
+}
+.header .title{
+    font-size: 16px;
+    line-height: 44px;
+}
+.header img {
+    width: 21px;
+    position: absolute;
+    left: 10px;
+    top: 12px
+}
+.header a {
+    color: #fff;
+    -webkit-tap-highlight-color:transparent
+}
+.header a:active {
+    background: none
+}
+.list-block select {
+    width: 100%
+}
+.list-block .item-inner {
+    padding-right: 1.3rem;
+!important;
+    padding-bottom: .2rem;
+    padding-top: .2rem
+}
+
+.yd-save-btn{
+    font-size: 16px;
+    background: #ff8000;
+    margin:20px 8px 20px;
+}
+
+.yd-list-text{
+    color: #333;
+    font-size: 14px;
+}
+
+.yd-list-title{
+    color: #666;
+    font-size: 14px;
+}
+
+.yd-list-select{
+    line-height: 24px;height: 24px;padding-left: 0
+}

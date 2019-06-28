@@ -1,0 +1,80 @@
+body{
+    background: #F5F5F5
+}
+.bee-search-content {
+    height:50px;
+    border-bottom: #e5e5e5 1px solid;
+    width: 100%;
+    background-color: #fff;
+    padding-top: 18px;
+    padding-bottom: 10px;
+}
+.bee-search-row {
+    margin: 0 5%;
+    height: 40px;
+}
+.bee-search-input {
+    border-radius: 4px;
+    color:#5d5d5d;
+    border:1px solid #cacaca;
+    text-indent:4px;
+    font-size:15px;
+    width:96%;
+    height:38px;
+}
+.bee-search-btn {
+    height: 100%;
+    line-height:40px;
+    text-align:center;
+    padding:0 4px;
+    background: #4f4f4f;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 15px;
+}
+.bee-tag-content {
+    padding: 15px 5%;
+    background: #fff;
+    margin-top: 10px;
+    border-bottom: #e5e5e5 1px solid;
+    border-top: #e5e5e5 1px solid;
+    font-size: 15px;
+}
+.bee-hotCity-content {
+    width: 100%;
+    height: auto;
+}
+.bee-city-list {
+    margin-top: 0;
+    font-size: 15px;
+}
+.bee-hotCity-title {
+    width: 90%;
+    height: auto;
+    color: #4f4f4f;
+    padding:10px 5% 6px;
+    font-size: 15px;
+}
+.bee-hotCity-list {
+    color: #4f4f4f;
+}
+.bee-tag-content a {
+    margin-right: 8px;
+    text-align: center;
+    display: inline-block;
+    color: #1ccda6;
+}
+.weui_cells_access .weui_cell_ft:after {
+    border-color: #4f4f4f;
+    width: 10px;
+    height: 10px;
+    border-width: 1px 1px 0 0;
+}
+.weui_cell:before {
+    left: 0;
+}
+.weui_cell{
+    background: #fff;
+    padding-top:15px;
+    padding-bottom: 15px;
+}

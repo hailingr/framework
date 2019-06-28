@@ -1,0 +1,121 @@
+.bee-user-con {
+    text-align: center;
+    padding:24px 5% 10px;
+}
+.bee-user-name {
+    font-size: 20px;
+    color: #333;
+}
+.bee-role-textArea {
+    width:96%;
+    border-color:#fff;
+    border: 1px solid;
+    resize:none;
+    font-size: 15px;
+    line-height: 18px;
+    color: #5d5d5d;
+}
+.bee-tag-content {
+    padding: 10px 4% 10px;
+    background: #fff;
+    border-bottom: #e5e5e5 1px solid;
+    border-top: #e5e5e5 1px solid;
+    margin-bottom: 10px;
+}
+
+.tags{
+    margin-right: 4px;
+    display: inline-block;
+    color: #A9A9A9;
+    font-size: 15px;
+}
+.bee-title{
+    font-size: 15px;
+}
+.tagsOn{
+    color:  #049d04;
+}
+/*上拉选择框选择标签样式*/
+.bee-tag-content input {
+    color: #049d04;
+    border: 0;
+    width: 100%;
+    outline: 0;
+    -webkit-appearance: none;
+    background-color: transparent;
+    font-size: inherit;
+    height: 1.41176471em;
+    line-height: 1.41176471;
+}
+.bee-role-content {
+    padding: 10px 4% 18px;
+    background: #fff;
+    border-bottom: #e5e5e5 1px solid;
+    border-top: #e5e5e5 1px solid;
+    margin-bottom: 10px;
+}
+.bee-word {
+    position: relative;
+    float: right;
+    margin-top: -5px;
+    margin-right:0;
+    color: #999
+}
+.bee-msg-con {
+    font-size: 14px;
+    color: #999;
+    margin-top: 6px;
+    line-height: 23px;
+    padding-left: 5%;
+}
+.bee-msgOn {
+    background:url('../../images/def/msg-check-icon.png') no-repeat 0 0!important;
+}
+.bee-msgDef {
+    background:url('../../images/def/msg-nocheck.png') no-repeat 0 0;
+    display: inline-block;
+    width:22px;
+    height: 22px;
+    float: left;
+    margin-right: 4px;
+}
+
+
+.bee-open-btn {
+    padding:7px 25px;
+    border-radius: 4px;
+    margin: 14px auto 0;
+    color:#fff;
+    font-size: 15px;
+    background: #3f3f3f;
+    border: 1px solid #3f3f3f
+}
+.bee-open-btn:hover{
+    background: #565656;
+    border: 1px solid #565656
+}
+.weui_cell:before{
+    left: 0;
+}
+
+.weui-picker-container{
+    height: 100%;
+}
+.weui-picker-modal{
+    height: 100%;
+}
+
+.weui-picker-container .weui_cells_radio{
+    max-height: 100%;
+}
+
+
+.bee-edit-btn {
+    padding:7px 25px;
+    border-radius: 4px;
+    margin: 14px auto 0;
+    color:#fff;
+    font-size: 15px;
+    background: #3f3f3f;
+    border: 1px solid #3f3f3f
+}

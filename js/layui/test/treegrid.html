@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="../layui/css/layui.css" rel="stylesheet" />
+    <style type="text/css">
+        body {
+            padding: 0 100px 100px;
+        }
+    </style>
+    <script src="jquery-1.10.2.min.js"></script>
+    <script src="layui/layui.js"></script>
+</head>
+<body>
+    <blockquote class="layui-elem-quote">
+        TreeGrid(树形表格)
+    </blockquote>
+    <div class="demo-text">
+        <p>
+            依赖模块：layui.grid<br />
+            语法：layui.treegrid.createNew(option);<br />
+            说明：treeGrid继承于grid组件，拥有grid的所有属性、方法、事件。<span style="color:red">标注"替换"的方法，在treeGrid中请勿使用。</span>
+        </p>
+    </div>
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>属性</legend>
+    </fieldset>
+    <table class="layui-table">
+        <thead>
+            <tr>
+                <th>属性名称</th>
+                <th>值类型</th>
+                <th>默认值</th>
+                <th>说明</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>id</td>
+                <td>string</td>
+                <td>'id'</td>
+                <td>节点id字段</td>
+            </tr>
+            <tr>
+                <td>parentid</td>
+                <td>string</td>
+                <td>'parentid'</td>
+                <td>父节点id字段</td>
+            </tr>
+            <tr>
+                <td>root</td>
+                <td>string/number</td>
+                <td>0</td>
+                <td>根节点值</td>
+            </tr>
+            <tr>
+                <td>order</td>
+                <td>string</td>
+                <td>=id</td>
+                <td>排序字段，默认为id字段</td>
+            </tr>
+            <tr>
+                <td>asc</td>
+                <td>string</td>
+                <td>'asc'</td>
+                <td>排序方式，顺序排序“asc”，倒序排序“desc”</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>方法</legend>
+    </fieldset>
+    <table class="layui-table">
+        <thead>
+            <tr>
+                <th>方法名称</th>
+                <th>参数类型</th>
+                <th>返回值类型</th>
+                <th>说明</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>collapse(id)</td>
+                <td>int/string/undefined</td>
+                <td>无</td>
+                <td>折叠节点，若参数为undefined,折叠一级节点</td>
+            </tr>
+            <tr>
+                <td>collapseAll(id)</td>
+                <td>int/string/undefined</td>
+                <td>无</td>
+                <td>折叠节点及其子节点，若参数为undefined,折叠全部节点</td>
+            </tr>
+            <tr>
+                <td>expand(id)</td>
+                <td>int/string/undefined</td>
+                <td>展开节点，若参数为undefined,展开一级节点</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>expandAll(id)</td>
+                <td>int/string/undefined</td>
+                <td>无</td>
+                <td>展开节点及其子节点，若参数为undefined,展开全部节点</td>
+            </tr>
+            <tr>
+                <td>getChild(id)</td>
+                <td>int/string</td>
+                <td>array</td>
+                <td>根据节点ID，获取节点的下级节点</td>
+            </tr>
+            <tr>
+                <td>getChildAll(id)</td>
+                <td>int/string</td>
+                <td>array</td>
+                <td>根据节点ID，获取节点的所有子节点</td>
+            </tr>
+            <tr>
+                <td>insertNode(rows,id)</td>
+                <td>
+                    rows:object/array<br />
+                    id:int/string/undefined
+                </td>
+                <td>无</td>
+                <td>在节点之前添加一个或多个同级节点，rows数据可为子父级关系的数据，<span style="color:red">替换insert方法</span></td>
+            </tr>
+            <tr>
+                <td>insertChild(rows,id)</td>
+                <td>
+                    rows:object/array<br />
+                    id:int/string/undefined
+                </td>
+                <td>无</td>
+                <td>添加一个或多个子节点。rows数据可为子父级关系的数据</td>
+            </tr>
+            <tr>
+                <td>updateNode(row,id)</td>
+                <td>row:object<br />id:int/string</td>
+                <td>无</td>
+                <td>修改节点，<span style="color:red">替换update方法</span></td>
+            </tr>
+            <tr>
+                <td>deleteNode(id)</td>
+                <td>int/string</td>
+                <td>无</td>
+                <td>删除节点及其所有子节点</td>
+            </tr>
+            <tr>
+                <td>editNode(id)</td>
+                <td>int/string</td>
+                <td>无</td>
+                <td>编辑节点，若id为undefined,编辑整个表格，<span style="color:red;">替换edit方法</span></td>
+            </tr>
+            <tr>
+                <td>endEditNode(id)</td>
+                <td>int/string</td>
+                <td>无</td>
+                <td>结束节点编辑，若id为undefined,整个表格结束编辑，<span style="color:red;">替换endEdit方法</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>事件</legend>
+    </fieldset>
+    <table class="layui-table">
+        <thead>
+            <tr>
+                <th>事件名称</th>
+                <th>参数说明</th>
+                <th>说明</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>loadRow(data)</td>
+                <td>
+                    data={<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id:id,  //节点id<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;children:function(rows)  //添加子节点的回调函数<br />
+                    }
+                </td>
+                <td>懒加载，设置此事件，表格数据行中字段'_children'值为'true'的行将开启懒加载，<br />回调函数的rows参数，可以为子父关系的数据</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

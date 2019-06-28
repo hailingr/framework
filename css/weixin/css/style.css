@@ -1,0 +1,77 @@
+/* CSS Document */
+body,div,ol,ul,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,p,form,fieldset,legend,input,button{ margin:0; padding:0; -webkit-tap-highlight-color:rgba(255,255,255,0); }
+html {  width: 100%; font-family: 'Heiti SC', 'Microsoft YaHei'; font-size: 100px; outline: 0; -webkit-text-size-adjust:none;}
+body {  width:100%; margin: 0; -webkit-user-select: none; position: relative; background-color:#fff;}
+a:hover,a:link,a:visited,a{ color:inherit; text-decoration:none;}
+ul,li{list-style:none;content: "\e626";}
+i{font-style:normal;width: 30px}
+
+/*自己写的旅游类型（国内游、自由行）的css*/
+.no-gutter{ padding-left: 5%; }
+.fb:nth-child(odd){border-right:0px solid #e1e1e1!important;}
+.name{ background: #D7EAE9; }
+.content-padded{ margin: 0; }
+.no-gutter a{ font-size: 3px!important; color: #9B9799!important; vertical-align: middle; }
+.col-25{ float: left; width: 25%; margin: 7px 0 7px 0;}
+.col-25 select{color: #333; }
+.no-gutter{ padding-left: 5%; }
+.swiper-pagination{ padding-bottom: 7%;}
+/*select{ border: 0; font-family: 微软雅黑}*/
+.nameType{color: green!important;}
+.weui_tabbar_item.weui_bar_item_on .weui_tabbar_label { color: #ff8000!important; }
+.no-gutter{font-size: 15px!important;}
+.num{margin-right: 0px}
+.price{width: 100%;}
+.price1{width: 100%;}
+.typeName{ padding-left: 0!important; margin-bottom: 1px}
+.num{margin-right: 0}
+.background{width: 100%; height: 100%; background: darkgrey; position: absolute;opacity:0.4; }
+.lmTopFilterDrop{position: absolute!important;}
+/*header{ width:12.42rem; height:8%; background-color:#62AE48;}*/
+/*header i.login{ float:left; display:block; width:0.85rem; height:0.8rem; margin:0.24rem 0 0.24rem 0.18rem; background:url(http://www.aaa.com/images/weixin/images/icon/login.png) no-repeat; background-size:0.85rem 0.8rem;}*/
+/*header .sch{ float:left; width:11rem; height:0.8rem; margin:0; border-radius:0.1rem; background-color:#447937; text-align:center;}*/
+.sousuo .sch{position: absolute;top: 0; width:90%; height:8%; background-color:black; text-align:center; line-height: 20px;filter:alpha(opacity=50); -moz-opacity:0.50;  opacity:0.20;}
+.sousuo .sch p{ line-height:1.1rem; color:#9D9D9D; font-size:0.5rem;}
+.sousuo .sch p img{ width:0.45rem; height:0.44rem; vertical-align:middle;}
+footer{ position:fixed; bottom:0; width:12.42rem; height:1.8rem; background-color:#FFF8F1; overflow:hidden;}
+footer .foot{ float:left; height:2.2rem; margin:0.15rem 0 0.2rem 1.68rem; text-align:center; overflow:hidden; color:#7ecef4;}
+footer .foot img{ width:0.7rem; height:0.7rem; margin:0 auto; display:block;}
+footer .foot p{ margin-top:0.15rem; font-size:0.3rem;}
+footer .act{ color:#9c9c9c;}
+.logo-dbs{ height:0.9rem; overflow:hidden;}
+.logo-dbs .dbs-img{ float:left; width:1rem; height:0.8rem; border-right:1px solid #fff; text-align:center;}
+.logo-dbs .dbs-img img{ width:0.85rem; height:0.8rem; display:block;}
+.logo-dbs p{ float:left; margin-left:0.15rem; font-size:0.35rem; line-height:0.8rem; color:#fff;}
+.jg{ width:12.42rem; height:1.58rem;}
+#topFilterTimes{position: absolute;background:#C0C0C0;width: 100%;vertical-align: middle;  }
+/*.date_input input{ margin-left: 5%;width: 90%;  }*/
+/*.queding{width: 90%;border-radius: 9px;background: #FF8000;margin-left: 5%;  }*/
+.favorable{ position: relative;  }
+.col-25 span{ color: #333; padding-left: 10%; font-family: 微软雅黑;}
+.timu{position: absolute; bottom: 43%; color: white; left: 3%; font-size: 20px}
+.seek{position: absolute; bottom: 35%; color: white; left: 15%;font-size: 16px!important;}
+/*.seek img{width: 8%!important; height: 8%!important;}*/
+/*element.style { height: 75px!important;}*/
+.chufa img{position: relative;bottom: 31px;left: 59px}
+/*.col-25 select {font-size: 0.4em}*/
+
+.menu{background: white!important;}
+.num3 input{margin-top: 3%}
+.sousuo .sch {width: 100%!important; height: 1.2rem!important;}
+.seek{top:0.2rem}
+#banner{height:190px}
+.swipe-wrap { height: 190px;}
+
+/*滚动刷新的刷新提示*/
+.weui-infinite-scroll .infinite-preloader:after, .weui-pull-to-refresh-layer .pull-to-refresh-preloader:after {
+    content: ""; background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D'0%200%20120%20120'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20xmlns%3Axlink%3D'http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink'%3E%3Cdefs%3E%3Cline%20id%3D'l'%20x1%3D'60'%20x2%3D'60'%20y1%3D'7'%20y2%3D'27'%20stroke%3D'%236c6c6c'%20stroke-width%3D'11'%20stroke-linecap%3D'round'%2F%3E%3C%2Fdefs%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(30%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(60%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(90%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(120%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(150%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.37'%20transform%3D'rotate(180%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.46'%20transform%3D'rotate(210%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.56'%20transform%3D'rotate(240%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.66'%20transform%3D'rotate(270%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.75'%20transform%3D'rotate(300%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.85'%20transform%3D'rotate(330%2060%2C60)'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat: no-repeat;  background-position: 50%;  background-size: 100%  }
+.weui-infinite-scroll {  height: 24px;  line-height: 24px;  padding: 10px;  text-align: center  }
+.weui-infinite-scroll .infinite-preloader {  display: inline-block;  margin-right: 4px;  vertical-align: -4px;  width: 20px;  height: 20px;  -webkit-transform-origin: 50%;  transform-origin: 50%;  -webkit-animation: preloader-spin 1s steps(12, end) infinite;  animation: preloader-spin 1s steps(12, end) infinite  }
+.weui-infinite-scroll .infinite-preloader:after {  display: block;  width: 100%;  height: 100%  }
+@-webkit-keyframes preloader-spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+

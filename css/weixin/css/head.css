@@ -1,0 +1,28 @@
+/*头部通用css*/
+/*顶部导航*/
+.header {
+    height: 44px;
+    color: #fff;
+    background: #ff8000;
+    font-size: 16px;
+    position: relative;
+    text-align: center;
+    z-index: 4
+}
+.header .title{
+    font-size: 16px;
+    line-height: 44px;
+    font-weight: normal;
+}
+.header img {
+    width: 21px;
+    position: absolute;
+    left: 10px;
+    top: 12px
+}
+.header a {
+    color: #fff
+}
+.header a:active {
+    background: none
+}

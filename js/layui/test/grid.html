@@ -1,0 +1,680 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="../layui/css/layui.css" rel="stylesheet" />
+    <style type="text/css">
+        body {
+            padding:0 100px 100px;
+        }
+        .link {
+            color:#01AAED;
+            text-decoration: underline;
+            cursor:pointer;
+        }
+        .grid .layui-table td:nth-child(1),.grid .layui-table td:nth-child(2) {
+            background-color:#f2f2f2;
+        }
+    </style>
+    <script src="../jquery-1.10.2.min.js"></script>
+    <script src="../layui/layui.js"></script>
+</head>
+<body>
+    <blockquote class="layui-elem-quote">
+        Grid(数据表格)
+    </blockquote>
+    <div class="demo-text">
+        <p>
+            依赖模块：layui.form(输入验证部分),layui.laypage<br />
+            语法：layui.grid.createNew(option);
+        </p>
+    </div>
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>属性</legend>
+    </fieldset>
+    <table class="layui-table">
+        <thead>
+            <tr>
+                <th>属性名称</th>
+                <th>值类型</th>
+                <th>默认值</th>
+                <th>说明</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>elem</td>
+                <td>string/Jquery</td>
+                <td>必填</td>
+                <td>grid 容器，可以为Jquery对象或容器id</td>
+            </tr>
+            <tr>
+                <td>view</td>
+                <td>string</td>
+                <td>必填</td>
+                <td>模板名称</td>
+            </tr>
+            <tr>
+                <td>data</td>
+                <td>json</td>
+                <td>undefined</td>
+                <td>模板数据，格式：{rows:[],...}</td>
+            </tr>
+            <tr>
+                <td>url</td>
+                <td>string</td>
+                <td>undefined</td>
+                <td>
+                    Ajax获取数据的URL，若data不为空，url无效，<br />
+                    接收数据格式:<br />
+                    {<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;rows:[],  //行数据<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;total:200,  //数据总记录数，用于分页<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;message:'',  //获取数据失败后的消息<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;flag:true  //数据是否获取成功<br />
+                    },<br />
+                </td>
+            </tr>
+            <tr>
+                <td>searchData</td>
+                <td>json</td>
+                <td>{}</td>
+                <td>
+                    发送到时服务器的数据，例：{title:'a', status:0}<br />
+                    使用分页后：{title:'a', status:0, page:1, pageSize:20}<br />
+                    开启排序后：{title:'a', status:0, page:1, pageSize:20, orderString:'createDate asc,track desc'}
+                </td>
+            </tr>
+            <tr>
+                <td>keys</td>
+                <td>string</td>
+                <td>undefined</td>
+                <td>数据行主键字段，配合selectValue方法，可根据关键字段值选中行，多个字段用';'分隔</td>
+            </tr>
+            <tr>
+                <td>page</td>
+                <td>int</td>
+                <td>1</td>
+                <td>页码,起始值为1</td>
+            </tr>
+            <tr>
+                <td>pageSize</td>
+                <td>int</td>
+                <td>undefined</td>
+                <td>每页显示行数，不设置则不分页</td>
+            </tr>
+            <tr>
+                <td>pageGroup</td>
+                <td>int</td>
+                <td>5</td>
+                <td>页码数量，等于laypage参数groups</td>
+            </tr>
+            <tr>
+                <td>record</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>是否显示总记录数</td>
+            </tr>
+            <tr>
+                <td>pageData</td>
+                <td>json</td>
+                <td>{rows:[],...}</td>
+                <td>当前页的数据</td>
+            </tr>
+            <tr>
+                <td>singleSelect</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>是否单选，若为false,则可多选</td>
+            </tr>
+        </tbody>
+    </table>
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>方法</legend>
+    </fieldset>
+    <table class="layui-table">
+        <thead>
+            <tr>
+                <th>方法名称</th>
+                <th>参数类型</th>
+                <th>返回值类型</th>
+                <th>说明</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>createNew(options)</td>
+                <td>options:object</td>
+                <td>grid对象</td>
+                <td>Grid、TreeGrid采用面向对象编程，极简主义风格编写。createNew:实例化一个新的对象</td>
+            </tr>
+            <tr>
+                <td>build()</td>
+                <td>无</td>
+                <td>无</td>
+                <td>渲染grid</td>
+            </tr>
+            <tr>
+                <td>getIndex()</td>
+                <td>无</td>
+                <td>int</td>
+                <td>返回焦点行的index值，无焦点行返回-1</td>
+            </tr>
+            <tr>
+                <td>getRow()</td>
+                <td>无</td>
+                <td>object</td>
+                <td>返回焦点行数据，无焦点行返回null</td>
+            </tr>
+            <tr>
+                <td>focus(index)</td>
+                <td>int</td>
+                <td>无</td>
+                <td>设置焦点行，index值为-1或undefined,取消焦点行</td>
+            </tr>
+            <tr>
+                <td>selectValue(value)</td>
+                <td>string/array</td>
+                <td>无</td>
+                <td>根据数据行主键值设置选中的行，若属性值singleSelect为false，vaue必须为数组，选中多选</td>
+            </tr>
+            <tr>
+                <td>selectRow()</td>
+                <td>无</td>
+                <td>object/array</td>
+                <td>获取选中行的数据，若属性值singleSelect为false,返回值为数组</td>
+            </tr>
+            <tr>
+                <td>selectIndex(index)</td>
+                <td>int/array/undefined</td>
+                <td>无/int/array</td>
+                <td>
+                    获取或设置选中行，参数类型对应：
+                    undefined:返回选中行的index值，singleSelect值为false时，返回数组;
+                    int:选中单行;<br />
+                    array:选中多行;
+                </td>
+            </tr>
+            <tr>
+                <td>insert(rows,index)</td>
+                <td>
+                    rows:object/array<br />
+                    index:undefined/int
+                </td>
+                <td>--</td>
+                <td>在index行之前添加一行或多行，若index值为undefined或-1,将添加在数据行末尾</td>
+            </tr>
+            <tr>
+                <td>update(row,index)</td>
+                <td>
+                    row:object<br />
+                    index:int
+                </td>
+                <td>--</td>
+                <td>修改index行</td>
+            </tr>
+            <tr>
+                <td>delete(index)</td>
+                <td>int/array</td>
+                <td>无</td>
+                <td>删除一行或多行</td>
+            </tr>
+            <tr>
+                <td>foot(footData)</td>
+                <td>object</td>
+                <td>无</td>
+                <td>更新表格页脚，例如包含统计的表格，更新行后须要手动更新表格页脚的统计数据</td>
+            </tr>
+            <tr>
+                <td>edit(index)</td>
+                <td>int/undefined</td>
+                <td>无</td>
+                <td>编辑行，需要视图配合使用,若index值为-1或undefined,将编辑整个表格</td>
+            </tr>
+            <tr>
+                <td>endEdit(index)</td>
+                <td>int/undefined</td>
+                <td>无</td>
+                <td>结束编辑行，需要视图配合使用，若index值为-1或undefined,整个表格将结束编辑</td>
+            </tr>
+            <tr>
+                <td>clear()</td>
+                <td>无</td>
+                <td>无</td>
+                <td>清除grid数据</td>
+            </tr>
+            <tr>
+                <td>setData(data)</td>
+                <td>object</td>
+                <td>无</td>
+                <td>设置grid数据</td>
+            </tr>
+            <tr>
+                <td>resize()</td>
+                <td>无</td>
+                <td>无</td>
+                <td>grid自适应</td>
+            </tr>
+        </tbody>
+    </table>
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>事件</legend>
+    </fieldset>
+    <table class="layui-table">
+        <thead>
+            <tr>
+                <th>事件</th>
+                <th>参数类型</th>
+                <th>说明</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>rowClick(row)</td>
+                <td>object</td>
+                <td>点击数据行触发，row:点击行的数据</td>
+            </tr>
+            <tr>
+                <td>dataSuccess(pageData)</td>
+                <td>object</td>
+                <td>获取数据成功后触发，pageData:当前页数据</td>
+            </tr>
+            <tr>
+                <td>success(pageData,elem)</td>
+                <td>
+                    pageData:object<br />
+                    elem:jquery
+                </td>
+                <td>表格渲染成功后触发，pageData:当前页数据，elem:表格容器</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <blockquote class="layui-elem-quote">
+        实例
+    </blockquote>
+    <script id="view" type="text/html">
+        <table class="layui-table text-center" lay-even>
+            <thead>
+                <tr>
+                    <th style="width:20px;"><input type="checkbox" /></th>
+                    <th style="width:20px;">No</th>
+                    <th>姓名</th>
+                    <th>年龄</th>
+                    <th>地区</th>
+                    <th>状态</th>
+                    <th>注册时间</th>
+                    <th style="">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{# layui.each(d.rows,function(index,item){ }}
+                <tr>
+                    <td class="text-center"><input type="checkbox" /></td>
+                    <td class="text-center">{{index+1}}</td>
+                    <td><a class="link">{{item.name}}</a></td>
+                    <td>{{item.age}}</td>
+                    <td>{{item.address}}</td>
+                    <td>{{# if(item.status==0){ }}<span style="color:#FF5722">禁用</span>{{# }else{ }}<span>启用</span>{{# }; }}</td>
+                    <td>{{item.createDate}}</td>
+                    <td>
+                        <a class="layui-btn layui-btn-small layui-btn-normal" href="javascript:fn.update()">修改</a>
+                        <a class="layui-btn layui-btn-small layui-btn-danger" href="javascript:fn.delete()">删除</a>
+                    </td>
+                </tr>
+                {{# }); }}
+            </tbody>
+        </table>
+    </script>
+    <script id="view1" type="text/html">
+        <table class="layui-table">
+            <thead>
+                <tr>
+                    <th style="width:20px;" rowspan="3"><input type="checkbox" /></th>
+                    <th style="width:20px;" rowspan="2">No</th>
+                    <th colspan="3">分组一</th>
+                    <th colspan="3">分组二</th>
+                    <th rowspan="2">操作</th>
+                </tr>
+                <tr>
+                    <th>姓名</th>
+                    <th order="age">年龄</th>
+                    <th>地区</th>
+                    <th>状态</th>
+                    <th order="createDate">注册时间</th>
+                    <th order="remark">备注</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{# layui.each(d.rows,function(index,item){ }}
+                <tr>
+                    <td class="text-center"><input type="checkbox" /></td>
+                    <td class="text-center">{{index+1}}</td>
+                    <td><a class="link">{{item.name}}</a></td>
+                    <td>{{item.age}}</td>
+                    <td>{{item.address}}</td>
+                    <td>{{# if(item.status==0){ }}<span style="color:#FF5722">禁用</span>{{# }else{ }}<span>启用</span>{{# }; }}</td>
+                    <td>{{item.createDate}}</td>
+                    <td>{{item.remark}}</td>
+                    <td>
+                        <a class="layui-btn layui-btn-small layui-btn-normal" href="javascript:fn.update()">修改</a>
+                        <a class="layui-btn layui-btn-small layui-btn-danger" href="javascript:fn.delete()">删除</a>
+                    </td>
+                </tr>
+                {{# }); }}
+            </tbody>
+        </table>
+    </script>
+
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>简单的grid</legend>
+    </fieldset>
+    <div id="demo" style="width:800px;"></div>
+    <hr />
+
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>grid分页</legend>
+    </fieldset>
+    <div id="demo1" style="width:800px;"></div>
+    <hr />
+
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>grid排序</legend>
+    </fieldset>
+    <div>表头添加属性order="字段名"</div>
+    <div id="demo2" style="width:800px;"></div>
+    <hr />
+
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>绝对定位的Grid</legend>
+    </fieldset>
+    <div>为容器添加样式"grid"</div>
+    <div style="position:relative; height:300px;">
+        <div id="demo3" class="grid"></div>
+    </div>
+    <hr />
+
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>数据操作</legend>
+    </fieldset>
+    <div>
+        <a class="layui-btn" id="btn_add">添加</a>
+        <a class="layui-btn" id="btn_update">修改</a>
+        <a class="layui-btn" id="btn_del">删除</a>
+        <a class="layui-btn" id="btn_reset">刷新</a>
+        <a class="layui-btn" id="btn_delIndex">删除第2条</a>
+        <a class="layui-btn" id="btn_data">重置数据</a>
+        <a class="layui-btn" id="btn_index">获取行号</a>
+    </div>
+    <div style="position:relative;height:300px; width:600px;">
+        <div id="demo4" class="grid"></div>
+    </div>
+
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>编辑表格</legend>
+    </fieldset>
+    <div style="position:relative; width:800px; height:300px;">
+        <div id="demo5" class="grid"></div>
+    </div>
+    <script id="view3" type="text/html">
+        <table class="layui-table text-center">
+            <thead>
+                <tr>
+                    <th style="width:20px;"><input type="checkbox" /></th>
+                    <th style="width:20px;">No</th>
+                    <th>姓名</th>
+                    <th>年龄</th>
+                    <th>地区</th>
+                    <th>状态</th>
+                    <th>注册时间</th>
+                    <th style="width:100px;">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+        {{# layui.each(d.rows,function(index,item){ }}
+                <tr>
+                    <td class="text-center"><input type="checkbox" /></td>
+                    <td class="text-center">{{index+1}}</td>
+                    <td><a class="link">{{item.name}}</a></td>
+                    {{# if(d.op=='edit'){ }}
+                    <td class="edit"><input type="text" class="text-center" name="age" lay-verify="required|number" max="120" min="1" value="{{item.age}}" /></td>
+                    <td class="edit"><input type="text" name="address" maxlength="120" value="{{item.address}}" /></td>
+                    <td class="edit">
+                        <select name="status" style="min-width:80px;">
+                            {{# if(item.status==0){ }}
+                            <option value="1">启用</option>
+                            <option value="0" selected>禁用</option>
+                            {{# }else{ }}
+                            <option value="1" selected>启用</option>
+                            <option value="0">禁用</option>
+                            {{# }; }}
+                        </select>
+                    </td>
+                    <td class="edit"><input type="text" name="createDate" value="{{item.createDate}}" onclick="layui.laydate({ elem: this });" /></td>
+                    <td>
+                        <a class="layui-btn layui-btn-small layui-btn-warm" href="javascript:fn.endEdit()">完成</a>
+                    </td>
+                    {{# }else{ }}
+                    <td>{{item.age}}</td>
+                    <td>{{item.address}}</td>
+                    <td>{{# if(item.status==0){ }}<span style="color:#FF5722">禁用</span>{{# }else{ }}<span>启用</span>{{# }; }}</td>
+                    <td>{{item.createDate}}</td>
+                    <td>
+                        <a class="layui-btn layui-btn-small layui-btn-normal" href="javascript:fn.edit()">编辑</a>
+                    </td>
+                    {{# }; }}
+                </tr>
+        {{# }); }}
+            </tbody>
+        </table>
+    </script>
+
+    <script>
+        var fn = {};
+        layui.config({
+            base: '../extend/'
+        }).use(['form', 'laytpl', 'laydate', 'grid'], function () {
+
+            //修改、扩展输入验证，grid、treegrid验证配置继承于form验证配置
+            layui.form().verify({
+                number: function (value, item) {
+                    if (typeof ($(item).attr('dec')) == 'undefined' && typeof ($(item).attr('desc')) == 'undefined' && !/^\d*$/.test(value))
+                        return '只能填写数字';
+                    if (typeof ($(item).attr('dec')) != 'undefined' && !new RegExp('^[+-]?\\d*\\.?\\d{0,' + $(item).attr('dec') + '}$').test(value))
+                        return '只能填写数字，小数最多' + $(item).attr('dec') + '位';
+                    if (typeof ($(item).attr('min')) != 'undefined' && (value == '' || parseFloat(value) < parseFloat($(item).attr('min'))))
+                        return '不可小于' + $(item).attr('min');
+                    if (typeof ($(item).attr('max')) != 'undefined' && (value == '' || parseFloat(value) > parseFloat($(item).attr('max'))))
+                        return '不可大于' + $(item).attr('max');
+                }
+            });
+
+            var laytpl = layui.laytpl;
+            var grid = layui.grid;
+
+            grid.config.render = function (viewid, data) {
+                var view = document.getElementById(viewid).innerHTML;
+                return laytpl(view).render(data) || '';
+            }
+
+            var data = {
+                rows: [{
+                    id: 1,
+                    name: 'demo',
+                    age: 1,
+                    address: '',
+                    createDate: '',
+                    status:1,
+                    remark:''
+                }, {
+                    id: 2,
+                    name: 'demo2',
+                    age: 27,
+                    address: '四川省成都市',
+                    status:0,
+                    createDate: '2017-06-27',
+                    remark:''
+                }]
+            };
+
+            var a = { id: 1, name: 2 }, b = {id:'asdf', title: 3, status: 4 };
+            $.extend(a, b);
+            b.id = 'bbbb';
+
+            var id = 3
+            var data2 = $.extend(true, {}, data);
+            for (var i = 1; i < 98; i++) {
+                data2.rows.push({
+                    id: id,
+                    name: 'demo' + i,
+                    age: parseInt(Math.random(2) * 100),
+                    address: '',
+                    createDate: '2017-06-30',
+                    remark: id
+                });
+                id++;
+            }
+
+            grid.createNew({
+                elem: 'demo',
+                view: 'view',
+                data: data,
+                singleSelect:true
+            }).build();
+
+            grid.createNew({
+                elem: 'demo1',
+                view: 'view',
+                data: data2,
+                pageSize: 5,
+                singleSelect: true
+            }).build();
+
+            grid.createNew({
+                elem: 'demo2',
+                view: 'view1',
+                data: data2,
+                pageSize:5
+            }).build();
+
+            grid.createNew({
+                elem: 'demo3',
+                view: 'view1',
+                data: data2,
+                pageSize: 15,
+                pageGroup:3,
+            }).build();
+
+            var grid4 = grid.createNew({
+                elem: 'demo4',
+                view: 'view1',
+                data: data2,
+                singleSelect: true,
+                rowClick: function (row) {
+                    alert(JSON.stringify(row, null, 4));
+                }
+            });
+            grid4.build();
+
+            //添加
+            var id = 2;
+            $('#btn_add').on('click', function () {
+                id++;
+                var row = {
+                    id: id,
+                    name: 'demo' + id,
+                    age: id,
+                    address: '',
+                    createDate: new Date().toString(),
+                    remark:'add'
+                };
+                grid4.insert(row);
+            });
+
+            //修改
+            var time = 1;
+            $('#btn_update').on('click', function () {
+                var row = grid4.selectRow();
+                if (row != null) {
+                    row.remark = 'update'+time;
+                    time++;
+                }
+                grid4.update(row);
+            });
+            //删除
+            $('#btn_del').on('click', function () {
+                grid4.delete();
+            });
+
+            //刷新
+            $('#btn_reset').on('click', function () {
+                grid4.build();
+            });
+
+            //根行号删除
+            $('#btn_delIndex').on('click', function () {
+                grid4.delete(1);  //删除第2行
+
+                //grid4.delete([0,1]) //删除1，2行
+            });
+
+            //设置数据
+            $('#btn_data').on('click', function () {
+                data = {
+                    rows: [{
+                        id: 1,
+                        name: 'demo',
+                        age: 1,
+                        address: '',
+                        createDate: '',
+                        remark: ''
+                    }, {
+                        id: 2,
+                        name: '夏羽天',
+                        age: 27,
+                        address: '四川省成都市',
+                        createDate: '2017-06-27',
+                        remark: ''
+                    }]
+                };
+
+                grid4.setData(data);
+
+                /* 效果同上
+                grid4.data = data;
+                grid4.page=1; //分页有效
+                brid4.build();
+                */
+            });
+
+            //获取行号
+            $('#btn_index').on('click', function () {
+                alert(grid4.selectIndex());
+
+                //若为多选，返回结果为数组:[0,1,...]
+            });
+
+            var grid5 = grid.createNew({
+                elem: 'demo5',
+                view: 'view3',
+                data: data2,
+                pageSize: 15,
+                record: true,
+                singleSelect: true
+            });
+            grid5.build();
+
+            fn.edit = function () {
+                var index = grid5.getIndex();
+                grid5.edit(index);
+            }
+            fn.endEdit = function () {
+                var index = grid5.getIndex();
+                grid5.endEdit(index);
+            }
+        });
+    </script>
+</body>
+</html>

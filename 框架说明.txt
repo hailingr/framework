@@ -1,0 +1,155 @@
+﻿Firn's 快速开发框架 简要说明，需要有一定的MVC概念阅读起来更容易理解
+###------------------------------------------------
+作者 hailin <hailingr@foxmail.com>
+更新 ChengDu(2018-01-26)
+###------------------------------------------------
+框架核心目录 _core_
+###------------------------------------------------
+特色 
+###---------
+
+   ######
+     类命约定，“.”规则
+   ###
+   1：控制器类名需要添加后缀“Controller”，数据模型类名需要添加后缀“Model”
+   3："."规则，系统中的类文件（控制器类，视图文件，模型类，lib类）在调用的时候均采用名称中用“.”符号连接
+   4：“.”符号可以理解为路径“/”，具体使用可见下面的列子
+   ######
+     Mysql支持
+   ###
+   1：支持两种数据驱动的绑定（mysql/mysqli）
+   2：可以定义多个mysql服务器，数据模型中采用$mode->setDns(2)进行切换
+   3：Mysql的相应使用Api见类Model方法注释
+   ######
+     支持以下NoSql，入口需要使用NoSql，需要安装相应的Mogo，Redis扩展
+   ###
+   1：支持MongoDB 可以定义多个mongodb服务，在多个mongo服务器中切换， 数据模型中使用$mode->mongoSetDns(3)
+   2：支持Redis   可以定义多个redis服务器，在多个redis服务中切换，数据模型中使用$mode->redisSetDns(3)
+
+###------------------------------------------------
+简要使用说明
+###---------
+
+一：控制器类，lib类，模型类，视图模板文件均多个通过“.”符号支持树状多层级调用
+   列：A.B.C => A/B/C
+ 
+###------------------------------------------------
+
+二：详列说明
+     1：启动入口
+     【URL方式】http://example.com/?m=d.a.gs&a=func
+     【URL方式】http://example.com/?m=d-a-gs&a=func
+     【URL方式】http://example.com/m=d-a-gs/func
+     【Cli方式】php.exe index.php m=d.a.gs&a=func
+     【Cli方式】php.exe index.php m=d-a-gs&a=func
+     说明：
+          * URL启动入口中的“.”也可以使用“-”符合代替，这样可以让URL看起来更“好看”，此规则只对程序入口有效（URL，cli的参数）
+          * 映射到控制器“/controller/d/a/gs.controller.php”
+          * 对应控制器类名“DAGsController” 类名遵循首字母大写的驼峰法则
+          * 控制器中有几个常用的方法
+			  1：$this->assign('name',$name);
+			  2：$this->assign(array('name1'=>'names','name1'=>'names'));
+			  3：$this->template('hailin.ha.h');
+			  4：$this->getRequests(array('key'=>'默认值','key2'=>'默认值2'));
+			  5：$this->getRequest('key','默认值');
+
+	 ##-------
+
+     2：视图模板  $this->template('hailin.ha.h')
+          * 映射到模板文件“/view/hailin/ha/h.html”
+          * 模板文件采用php自身作为解释引擎“<?php echo $para;?>”,且支持php语法
+          * 变量需要在控制器中采用$this->assign('para','hello')后方可使用
+
+	 ##-------
+
+     3：数据模型  $mo = model('hailin.ha');
+          *配置文件config/core.config.php
+				'dbns' => array(
+				   1=> array(
+					   'dbdrive'    => 'mysql',
+					   'dbhost'     =>  '192.168.1.2',
+					   'dbname'     =>  'www.u6u.com',
+					   'dbport'     =>  '3306',
+					   'dbuser'     =>  'u6u_net',
+					   'dbpwd'      =>  'u6u_net',
+					   'dbpccon'    =>  false
+				   ),
+					2=> array(
+						'dbdrive'    => 'mysql',
+						'dbhost'     =>  'localhost',
+						'dbname'     =>  '',
+						'dbport'     =>  '3306',
+						'dbuser'     =>  'root',
+						'dbpwd'      =>  'root',
+						'dbpccon'    =>  false
+					)
+				),
+          * 映射到模型“/model/hailin/ha.model.php”
+          * 对应模型类名”HailinHaModel“  类名遵循首字母大写的驼峰法则
+          * 模型依据配置文件中的数据库dns序号自动初始化连接，现同时支持mysql，mongodb，redis
+          * 并支持多数据库的切换，不同的数据库引擎切换需要采用自己的切换api,参数为配置文件中相应服务器配置项的索引“index”
+			  1：mysql：$mode->setDns(1)；
+			  2：mongodb：$mode->mongoSetDns(3)
+			  3：redis:$mode->redisSetDns(3)
+
+          * Mysql数据库操作封装：
+             1：查询(链式) $m1->table('tableName')->where('sss=www')->jion('left jion aa on (a=b)')->field('a,b,c')->limit(1,1)->order('sd asc,fg desc')->group('sss,ff,fff')->get();
+             2：更新(链式) $m1->table('tableName')->where(array('id'=>1))->update(array('name'=>'hailin'))
+             3：插入(链式) $m1->table('tableName')->insert(array('name'=>'hailin','year'=>'12'))
+             4：原生SQL $m1->query($sql);$m1->get($sql)
+             5：其他可查看Model类
+
+###------------------------------------------------
+
+三：全局对象
+	1：Core::$G 			获取系统全局属性集合
+	2：G('key') 			获取全局属性单一对象
+	3：import()   		核心，文件，类的载入
+	4：controller()		控制器载入
+	5：model	()			模型载入
+###------------------------------------------------
+
+四：工具方法
+	1：详见   _core_/lib/lib.function.php
+	2：核心类 详见_core_/lib/core.class.php 文件中的类“Core，Model，Controller”
+
+###------------------------------------------------
+
+五：模块方法授权认证
+	1：数据字典结构“用户权限体系.png”
+	2：核心类 详见权限模型 user.auth(user/auth.model.php)
+
+###------------------------------------------------
+
+
+###------------------------------------------------
+   nginx url重新配置
+##-------
+ if (!-d $request_filename){
+		set $rule_0 1$rule_0;
+ }
+ if (!-f $request_filename){
+		set $rule_0 2$rule_0;
+ }
+ if ($rule_0 = "21"){
+		rewrite ^/(.*)$ /index.php?_PATHINFO_=$1 last;
+ }
+ 
+ ###------------------------------------------------
+
+By hailin<hailingr@foxmail.com>
+2016.06.02
+
+
+
+###------------------------------------------------
+其他（SQL计算两点之间距离）
+###---------
+SELECT address,lng,lat,
+ROUND(6378.138*2*ASIN(SQRT(POW(SIN(({29.64068}*PI()/180-lat*PI()/180)/2),2)+COS({29.64068}*PI()/180)*COS(lat*PI()/180)*POW(SIN(({102.126997}*PI()/180-lng*PI()/180)/2),2)))*1000)
+AS distance
+FROM sline_geo
+ORDER BY distance ASC
+LIMIT 316
+
+round(6378.138*2*asin(sqrt(pow(sin((29.643573*pi()/180-lat*pi()/180)/2),2)+cos(29.643573*pi()/180)*cos(lat*pi()/180)* pow(sin((102.124376*pi()/180-lng*pi()/180)/2),2)))*1000)

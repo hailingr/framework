@@ -1,0 +1,37 @@
+
+.small-img p{
+    text-align: center;
+    margin-top: 5px;
+}
+
+
+
+/*按钮美化*/
+._file {
+    position: relative;
+    display: inline-block;
+    background-color: #1AB394;
+    border: 1px solid #99D3F5;
+    border-radius: 3px;
+    font-size: 14px;
+    overflow: hidden;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    line-height: 32px;
+    width: 120px;
+    height: 34px;
+}
+._file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+._file:hover {
+    background: #20b399;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+}

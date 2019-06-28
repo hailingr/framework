@@ -1,0 +1,108 @@
+
+body,html{max-width: 440px;margin: auto;background:#f4f4f4;height: 100% }
+a{  -webkit-tap-highlight-color:transparent}
+/*会员页面基础css*/
+.header {
+    height: 44px;
+    color: #fff;
+    background: #ff8000;
+    font-size: 16px;
+    position: relative;
+    text-align: center;
+    z-index: 4
+}
+.header .title{
+    font-size: 16px;
+    line-height: 44px;
+}
+.header img {
+    width: 21px;
+    position: absolute;
+    left: 10px;
+    top: 12px
+}
+.header a {
+    color: #fff;
+    -webkit-tap-highlight-color:transparent
+}
+.header a:active {
+    background: none
+}
+
+.yd-list-text {
+    color: #333;
+    font-size: 15px;
+}
+
+.yd-list-title {
+    color: #666;
+    font-size: 15px;
+}
+
+.yd-box-title {
+    font-size: 16px;
+    color: #ff8000;
+    font-weight: 700;
+}
+
+.yd-btn-list {
+    margin-top: 0;
+    border-radius: 0;
+    width: 98%;
+    height: 32px;
+    line-height: 32px;
+    font-size: 14px;
+    background: #fff;
+    margin-bottom: 4px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.yd-btn-active {
+    color: #10aeff;
+}
+
+.yd-btn-list:after {
+    border-radius: 0;
+    border-width: 2px;
+    border-color: #e3e3e3;
+}
+
+.yd-btn-active:after {
+    border: 2px solid #10aeff;
+}
+
+.yd-save-btn {
+    font-size: 16px;
+    background: #ff8000;
+    margin: 20px 8px 20px;
+}
+
+/*修改weiui内选择框样式 颜色*/
+.weui_cells_checkbox .weui_check:checked+.weui_icon_checked:before{
+    color: #10aeff;
+}
+.weui_cells_radio .weui_check:checked+.weui_icon_checked:before{
+    color: #10aeff;
+}
+.toolbar .picker-button {
+    color: #10aeff;
+}
+.weui_btn_default:not(.weui_btn_disabled):active {
+    color: #454545;
+    background-color: #ffffff;
+}
+
+
+.yd-select-title{
+    padding-left:16px;font-size: 14px!important;line-height: 32px;color: #666
+}
+.yd-select-box{
+    margin-bottom: 8px;padding-left: 16px;padding-right: 16px;
+}
+.yd-select-list{
+    width: 25%;float: left
+}
+.yd-select-input{
+    background: #f4f4f4;height: 36px;padding-left: 4px;border-radius: 2px;
+}

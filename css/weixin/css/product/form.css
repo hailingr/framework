@@ -1,0 +1,121 @@
+
+input[type="text"],input[type="password"],select,textarea {
+	width:100%;
+	/*padding:.8em .6em;*/
+	margin:1px 0;
+	border-radius:0;
+	background-color:white;
+	border:1px solid #bfbfbf
+}
+
+.date {
+	overflow:hidden
+}
+@media screen {
+	.page_audio {
+	position:relative;
+	overflow:visible
+}
+}@media screen {
+	#gearDate,#gearTime {
+	background-color:rgba(0,0,0,.2);
+	display:none;
+	overflow:hidden
+}
+#date_ctrl,#time_ctrl {
+	vertical-align:middle;
+	background-color:#C0C0C0;
+	color:white;
+	height:5.7em;
+	width:17em;
+	overflow:hidden
+}
+#date_roll,#time_roll {
+	width:9.2em;
+	/*width:16.8em\9;*/
+	height:auto;
+	overflow:hidden;
+	font-weight:bold;
+	background-color:transparent;
+	margin:0.3em auto
+}
+#time_roll {
+	width:10.8em;
+	width:11.3em\9
+}
+#date_roll>div,#time_roll>div {
+	font-size:0.5em;
+	height:6em;
+	float:left;
+	background-color:transparent;
+	position:relative;
+	overflow:hidden
+}
+.grid {
+	position:relative;
+	top:2em;
+	height:2em;
+	width:2.5em;
+	margin:0 .5em;
+	border-top:2px solid blue;
+	border-bottom:2px solid blue;
+	box-sizing:border-box;
+	z-index:0;
+	border-color:#0f9ee8
+}
+
+#date_roll>div:nth-child(1) .grid {
+	width:3.5em
+}
+.grid>div {
+	color:#0f9ee8;
+	position:absolute;
+	right:0;
+	bottom:0;
+	font-size:.8em
+}
+#date_btn {
+	margin-left: 23%!important;
+	width: 27%;
+	background-color:#0f9ee8;
+	color:white;
+	height:2em;
+	line-height:2em;
+	text-align:center;
+	margin:-0.5em;
+	font-size: 10px;
+	cursor:pointer
+}
+.gear {
+	float:left;
+	position:absolute;
+	z-index:100;
+	width:4.5em;
+	margin-top:-6em
+}
+#date_roll>div .gear {
+	width:4em
+}
+#date_roll>div:nth-child(1) .gear {
+	width:5.5em
+}
+.tooth {
+	height:2em;
+	line-height:2em;
+	text-align:center
+}
+}
+@media screen {
+	.form_goods_item {
+		width: 50%;
+		overflow: hidden;
+		float: left
+	}
+}
+.gear{
+	margin-left: -30%;
+}
+#date_head{
+	font-size: 15px!important;
+}
+

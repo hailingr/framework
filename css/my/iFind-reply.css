@@ -1,0 +1,88 @@
+.bee-user-content {
+    padding: 8px 0;
+}
+.bee-user-face {
+    width:40px;
+    margin-right:8px;
+    position: relative;
+    border-radius: 20px;
+    top:3px;
+}
+.bee-user-name {
+    color:#3f3f3f;
+    font-size:16px;
+    line-height: 32px;
+}
+.bee-role-con {
+    padding: 8px 0;
+}
+.bee-role-text {
+    color: #999;
+    font-size: 14px;
+}
+.bee-msg-time {
+    float: right;
+    font-size: 12px;
+    color: #999;
+}
+.bee-role-think {
+    padding: 6px 15px 8px 15px;
+    font-size: 15px;
+    color: #3f3f3f
+}
+.bee-textArea-con {
+    padding: 20px 5%;
+    width: 90%;
+}
+.bee-textArea {
+    width:96%;
+    border-radius: 4px;
+    border-color:#d5d5d5;
+    resize:none;
+    padding:2%;
+    font-size: 16px;
+}
+.bee-word {
+    position: relative;
+    float: right;
+    margin-top: -30px;
+    margin-right: 4px;
+    color: #999
+}
+.bee-reply-btn {
+    padding: 7px 25px;
+    margin: 10px auto 0;
+    color:#fff;
+    font-size: 15px;
+    background: #3f3f3f;
+    border-radius: 4px;
+    border: 1px solid #3f3f3f
+}
+.bee-code-con {
+    padding-bottom: 26px;
+    background: #FAFAFA;
+    border-top:1px solid #e5e5e5;
+    border-bottom:1px solid #e5e5e5;
+    text-align: center;
+    margin-top: 20px;
+    padding-top:26px;
+}
+.bee-tips-one {
+    color: #333;
+    font-weight:700
+}
+.bee-tips-img {
+    margin: 10px auto;
+}
+.bee-tips-tow {
+    font-size: 14px;
+    color: #999
+}
+
+.weui_cell{
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+.weui_cells{
+    margin-top: 10px;
+}

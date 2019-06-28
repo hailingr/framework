@@ -1,0 +1,390 @@
+
+body,html,header,.bottom_share{max-width: 640px;margin: auto;background:#f4f4f4;height: 100% }
+a{  -webkit-tap-highlight-color:transparent}
+/*会员页面基础css*/
+.header {
+    height: 44px;
+    color: #fff;
+    background: #ff8000;
+    font-size: 16px;
+    position: relative;
+    text-align: center;
+    z-index: 4
+}
+.header .title{
+    font-size: 16px;
+    line-height: 44px;
+}
+.header img {
+    width: 21px;
+    position: absolute;
+    left: 10px;
+    top: 12px
+}
+.header a {
+    color: #fff;
+    -webkit-tap-highlight-color:transparent
+}
+.header a:active {
+    background: none
+}
+
+.yd-list-text {
+    color: #333;
+    font-size: 15px;
+}
+
+.yd-list-title {
+    color: #666;
+    font-size: 15px;
+}
+
+.yd-box-title {
+    font-size: 16px;
+    color: #ff8000;
+    font-weight: 700;
+}
+
+.yd-btn-list {
+    margin-top: 0;
+    border-radius: 0;
+    width: 98%;
+    height: 32px;
+    line-height: 32px;
+    font-size: 14px;
+    background: #fff;
+    margin-bottom: 4px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.yd-btn-active {
+    color: #10aeff;
+}
+
+.yd-btn-list:after {
+    border-radius: 0;
+    border-width: 2px;
+    border-color: #e3e3e3;
+}
+
+.yd-btn-active:after {
+    border: 2px solid #10aeff;
+}
+
+.yd-save-btn {
+    font-size: 16px;
+    background: #ff8000;
+    margin: 20px 8px 20px;
+}
+
+/*修改weiui内选择框样式 颜色*/
+.weui_cells_checkbox .weui_check:checked+.weui_icon_checked:before{
+    color: #10aeff;
+}
+.weui_cells_radio .weui_check:checked+.weui_icon_checked:before{
+    color: #10aeff;
+}
+.toolbar .picker-button {
+    color: #10aeff;
+}
+.weui_btn_default:not(.weui_btn_disabled):active {
+    color: #454545;
+    background-color: #ffffff;
+}
+
+
+.yd-select-title{
+    padding-left:16px;font-size: 14px!important;line-height: 32px;color: #666
+}
+.yd-select-box{
+    margin-bottom: 8px;padding-left: 16px;padding-right: 16px;
+}
+.yd-select-list{
+    width: 25%;float: left
+}
+.yd-select-input{
+    background: #f4f4f4;height: 36px;padding-left: 4px;border-radius: 2px;
+}
+
+/*登录*/
+#login{height: 280px; width: 100%; font-size: 15px; }
+.btn_login{ margin-top: 30px; background: #F5F5F5}
+.login{margin-right: 5%; width: 40%; height: 40px; background: #ff8000; color:#fff;line-height: 40px; text-align: center; float: right; margin-left: 10%; border-radius: 5px; }
+.abolish{width: 40%; height: 40px; background: #BDBDBD;color: #fff ;line-height:40px; text-align: center; float: left; margin-left: 5%; border-radius: 5px}
+.ti_btn{color: white;}
+#text_login a{float: left; margin-top: 15px; margin-left: 5%; color: green;}
+.loginTitle{background: #FF8001; color: white; font-weight: bold}
+.loginTitle h3{font-weight: bold!important; font-size: 22px!important;}
+.hint{color: red; text-align: center; font-size: 5px!important;}
+.yd-pwd-border:before{left: 0}
+.yd-pwd-border{border-bottom: 1px solid #ECECEC;}
+
+
+
+
+
+/*分享*/
+.bottom_share {
+    border-top: 1px solid #e5e5e5;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0px;
+    padding: 3px 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    box-sizing: border-box;
+    background: #ffffff;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.bottom_share .share_buts {
+    display: inline-block;
+    width: 35%;
+    margin-top: 6px;
+}
+
+.share_buts .share_right, .share_buts .share_left {
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+
+.bottom_share .share_buts .share_buts_a {
+    width: 100%;
+    height: 40px;
+    line-height: 20px;
+    font-size: 12px;
+    text-align: center;
+    display: inline-block;
+}
+
+.bottom_share .share_buts .share_but {
+    color: #666;
+    font-size: 12px;
+}
+
+.bottom_share .tel_link {
+    width: 40px;
+    height: 40px;
+    line-height: 20px;
+    font-size: 12px;
+    text-align: center;
+    display: inline-block;
+}
+
+.bottom_share .tel_link .tel_link_but {
+    padding-left: 10px;
+    color: #666;
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+}
+
+.phone_icon {
+    color: #666;
+    width: 20px;
+    height: 24px;
+    display: inline-block;
+    font-size: 24px!important;
+}
+
+.share_icon {
+    color: #666;
+    width: 20px;
+    height: 24px;
+    display: inline-block;
+    font-size: 24px!important;
+}
+
+.bottom_share .order_div {
+    width: 60%;
+    height: 60px;
+    position: absolute;
+    right: 0;
+    top: 0px;
+    bottom: 0px;
+}
+
+.orderBtn {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    color: #fff;
+    background-color: #ff4931;
+    border: none;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 18px;
+}
+
+.orderBtn.disabled {
+    background-color: #ccc;
+}
+
+/*底部按钮悬浮*/
+.bottom_share{overflow-x: hidden!important;}
+.orderBtn { background: #FF8000!important; }
+.coucon_li_box { line-height: 89px!important; }
+.coucon_li_l{padding-top: 11px}
+.spanL { font-size: 35px!important; }
+.coupon_get{margin-left: 10%}
+.activityType{margin-left: 3%; border-radius: 3px; padding: 1% 3%; background: white; color: green; margin-bottom: 1%; width: 30%; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; border: 1px solid #6E6E6E}
+.ok{border: 1px solid green!important;}
+
+.yd_order_Btn {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    color: #fff;
+    background: #FF8000!important;
+    border: none;
+    text-align: center;
+    font-size: 18px;
+}
+
+/*拨打电话提示信息*/
+#phoneTips{height: 250px; width: 100%; text-align: center; padding-top: 2%; background: white}
+.lineNumber{color: #ff8000; font-size: 14px; padding-top: 3%; text-align: left; margin-left: 10%}
+.lineName{color: #48C190; font-size:14px; padding-top: 6%; text-align: left; margin-left: 10%; margin-right: 10%}
+.affirm input{background: #00bf4b; font-size:14px;color: white; width: 80%; height: 40px; line-height: 40px; border-radius: 5px; margin-top: 4%}
+.counselTel input{background: #FF8702; color: white; width: 80%; height: 40px; line-height: 40px; border-radius: 5px; margin-top: 4%}
+.callOff input{background: #666666; color: white; width: 80%; height: 40px; line-height: 40px; border-radius: 5px; margin-top: 4%}
+
+.share_body {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 30;
+    background: rgba(0, 0, 0, 0.4);
+    display: none;
+}
+
+.to_share {
+    background: #fff;
+    z-index: 30;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+}
+
+.share_body .share_title {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+}
+
+.share_body .share_ct {
+    padding: 15px 0;
+    width: 100%;
+}
+
+.share_body .share_ct .share_list {
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+}
+
+.share_body .share_ct .share_list .share_item {
+    width: 33.333%;
+    height: 65px;
+    line-height: 25px;
+    float: left;
+    text-align: center;
+}
+
+.share_body .share_ct p {
+    color: #666;
+    text-align: center;
+    font-size: 16px;
+    line-height: 40px;
+    display: block;
+}
+
+.share_list .gmIcon {
+    font-size: 60px;
+    width: 100%;
+}
+
+.share_qqZone .gmIcon {
+    color: #ff9d3b;
+}
+
+.share_renren .gmIcon {
+    color: #ff4931;
+}
+
+.share_sina .gmIcon {
+    color: #78a7ff;
+}
+
+.share_body .share_other {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    position: absolute;
+    top: -15px;
+    right: 10px;
+}
+
+.share_body .share_other .share_close_but {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 30px;
+    display: inline-block;
+}
+
+.share_close_but .gmIcon {
+    color: #ff7e1d;
+    font-size: 22px;
+}
+
+.ft12 {
+    font-size: 12px;
+}
+
+.WxShareTips {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    z-index: 999;
+    display: none;
+}
+
+.WxShareTips .shareTipsBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.WxShareTips .shareTipsBg img {
+    width: 100%;
+    height: auto;
+    margin-right: 5px;
+}

@@ -1,0 +1,51 @@
+<?php
+/**
+ * 交互中心的seo描述关键字相关
+ * 支持标签的替换 #产品# 将会自动替换“#*#”之间的数据
+ **/
+$seo=array(
+   'global'=>array(
+               'title'         =>'拼着玩',
+               'discription'   =>'这里是拼着玩-http://www.pzww.com',
+               'keywords'      =>'拼着玩,拼酒店,酒店团购,低价酒店',
+               'author'        =>'Firn'
+               ),
+   'index'=>array(
+                'title'         =>'拼着玩网：订酒店-订房-成都特价酒店预订-酒店预订网',
+                'discription'   =>'拼着玩网是为喜欢旅行的朋友提供轻松拼单，花更少的钱，住更好的酒店的专业预订网站。提供超过上万人次在线订房、订酒店及成都特价宾馆、成都特价酒店预订查询服务。',
+                'keywords'      =>'特价酒店预订,成都特价酒店预订,订低价酒店,低价酒店,拼酒店,拼着玩',
+                'author'        =>'Firn'
+            ),
+   'help'=>array(
+                'title'         =>'拼着玩帮助页面',
+                'discription'   =>'这里是拼着玩-http://www.pzww.com',
+                'keywords'      =>'拼着玩,拼酒店,酒店团购,低价酒店',
+                'author'        =>'Firn'
+            ),
+   'hotellist'=>array(
+                'title'         =>'拼着玩网：订酒店-订房-成都特价酒店预订-酒店预订网',
+                'discription'   =>'拼着玩网是为喜欢旅行的朋友提供轻松拼单，花更少的钱，住更好的酒店的专业预订网站。提供超过上万人次在线订房、订酒店及成都特价宾馆、成都特价酒店预订查询服务。',
+                'keywords'      =>'特价酒店预订,成都特价酒店预订,订低价酒店,低价酒店,拼酒店,拼着玩',
+                'author'        =>'Firn'
+            ),
+   'hotelinfo'=>array(
+                'title'         =>'#酒店名称#,#价格#元起_拼着玩网',
+                'discription'   =>'#酒店名称#特价，订房电话:4009929666,拼着玩网为您提供#酒店名称#预订、价格、电话、地址、图片、点评、团购等查询服务。',
+                'keywords'      =>'#酒店名称#官网,#酒店名称#,#酒店名称#预订,#酒店名称#电话,#酒店名称#价格',
+                'author'        =>'Firn'
+            ),
+   'billshow'=>array(
+                 'title'         =>'拼着玩拼单确定',
+                 'discription'   =>'这里是拼着玩-http://www.pzww.com',
+                 'keywords'      =>'拼着玩,拼酒店,酒店团购,低价酒店',
+                 'author'        =>'Firn'
+            ),
+   'notice'=>array(
+                 'title'         =>'拼着玩须知',
+                 'discription'   =>'拼着玩须知-http://www.pzww.com',
+                 'keywords'      =>'拼着玩,拼酒店,酒店团购,低价酒店',
+                 'author'        =>'Firn'
+           )
+
+);
+return $seo;

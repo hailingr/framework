@@ -1,0 +1,58 @@
+.iconBack{ width:13px; height:21px; background-position:-1px -1px;}
+.iconDx,.iconSearch2,.iconHome,.iconMan{width:29px; height:29px;background-position:-125px -79px}
+.iconSearch2{background-position:-100px -118px}
+.iconHome{background-position:-37px -117px}
+.iconMan{background-position:-127px -117px}
+.iconDian{ display:inline-block; width:4px; height:4px; background:#fff; border-radius:50%;}
+.iconAll2{ width:29px; height:29px; background-position:-71px -119px}
+
+.headTop{ height:44px; line-height:44px; background:#00bf49; text-align:center; position:relative; z-index:15;}
+.headTop>span{ font-size:18px; color:#fff; display:inline-block; vertical-align:top; width:70%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.headTop .back{ float:left; width:40px; height:44px;}
+.headTop .back i{ margin:11px 0 0 10px; float:left;}
+.headTop .more,.headTop .btn{ float:right; height:44px; width:40px; text-align:center;}
+.headTop .more i{ margin:19px 5px 0 0; vertical-align:top;}
+.headTop .btn{ color:#fff; width:auto; font-size:1.2rem; min-width:40px; padding-right:7px;}
+.allPageLink{ position:absolute; width:100%; display:-webkit-box; background:#fff; z-index:14; line-height:16px; top:44px;display:none; text-align:center; font-size:12px;}
+.allPageLink a{-webkit-box-flex:1; display:block; padding-top:15px; height:80px; box-sizing:border-box;}
+.allPageLink a p{ margin-top:5px; color:#666; font-size:12px;}
+
+.mengban{ width:100%; height:120%; position:fixed; top:0; left:0; background:rgba(0,0,0,0.3); z-index:100;}
+.winTel{ position:fixed; z-index:100; top:50%; left:50%; width:22.5rem; line-height:6rem; background:#fff; box-sizing:border-box; padding:0 .5rem; border-radius:.5rem; z-index:150; margin:-6rem 0 0 -11.3rem; }
+
+.dhOpen{-webkit-animation:open 0.3s}
+.dhOpacity{-webkit-animation:opacity 0.3s}
+.dhDown{-webkit-animation:down 0.3s;}
+.dhUp{-webkit-animation:up 0.3s;}
+.dhOpenNot{-webkit-animation:openNot 0.3s}
+.dhOpacityNot{-webkit-animation:opacityNot 0.3s}
+@-webkit-keyframes open
+{
+    0% { -webkit-transform:scale(0.5); opacity:0;}
+    100% { -webkit-transform:scale(1); opacity:1}
+}
+@-webkit-keyframes opacity
+{
+    0% { opacity:0;}
+    100% { opacity:1}
+}
+@-webkit-keyframes openNot
+{
+    0% { -webkit-transform:scale(1); opacity:1}
+    100% { -webkit-transform:scale(0.5); opacity:0;}
+}
+@-webkit-keyframes opacityNot
+{
+    0% { opacity:1}
+    100% {opacity:0; }
+}
+@-webkit-keyframes down
+{
+    0% { -webkit-transform:translateY(-6rem); opacity:0}
+    100% {-webkit-transform:translateY(0); opacity:1}
+}
+@-webkit-keyframes up
+{
+    0% {-webkit-transform:translateY(0); opacity:1}
+    100% { -webkit-transform:translateY(-6rem); opacity:0}
+}

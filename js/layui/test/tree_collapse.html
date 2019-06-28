@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <meta charset="utf-8" />
+    <link href="../layui/css/layui.css" rel="stylesheet" />
+    <script src="../jquery-1.10.2.min.js"></script>
+    <script src="../layui/layui.js"></script>
+</head>
+<body>
+    <div class="layui-btn-group">
+        <a class="layui-btn" lay-filter="collapse">折叠节点</a>
+        <a class="layui-btn" lay-filter="collapseAll">折叠节点及其子节点</a>
+    </div>
+    <div class="layui-btn-group">
+        <a class="layui-btn" lay-filter="expand">展开节点</a>
+        <a class="layui-btn" lay-filter="expandAll">展开节点及其子节点</a>
+    </div>
+    <div id="demo" class="grid">
+    </div>
+    <script id="view" type="text/html">
+        <table class="layui-table">
+            <thead>
+                <tr>
+                    <th>组织结构</th>
+                    <th>名称</th>
+                    <th>编号</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{# layui.each(d.rows,function(index,r){ }}
+                <tr>
+                    <td><input type="checkbox" />{{r.title}}</td>
+                    <td>{{r.name}}</td>
+                    <td>{{r.code}}</td>
+                </tr>
+                {{# }); }}
+            </tbody>
+        </table>
+    </script>
+    <script>
+        layui.config({
+            base: '../extend/'
+        }).use(['laytpl', 'treegrid'], function () {
+            var laytpl = layui.laytpl,
+                treegrid = layui.treegrid;
+            treegrid.config.render = function (viewid, data) {
+                var view = document.getElementById(viewid).innerHTML;
+                return laytpl(view).render(data) || '';
+            };
+
+            var id = 1;
+            var rows = [];
+            for (var i = 1; i <= 2; i++) {
+                rows.push({
+                    id: id,
+                    pid: 0,
+                    title: '分公司' + i,
+                    name: 'CEO' + i,
+                    code:id,
+                    remark: ''
+                });
+                var pid = id;
+                id++;
+                for (var j = 1; j <= 2; j++) {
+                    rows.push({
+                        id: id,
+                        pid: pid,
+                        title: '部门' + id,
+                        name: '经理' + id,
+                        code: id,
+                        remark: ''
+                    });
+                    pid = id;
+                    id++;
+                    for (var k = 1; k <= 3; k++) {
+                        rows.push({
+                            id: id,
+                            pid: pid,
+                            title: '小组' + id,
+                            name: '组长' + id,
+                            code: id,
+                            remark: '',
+                            _children: true
+                        });
+                        id++;
+                    }
+                }
+            }
+
+            var tree1=treegrid.createNew({
+                elem: 'demo',
+                view: 'view',
+                data: { rows: rows },
+                parentid: 'pid',
+                singleSelect: true
+            });
+            tree1.build();
+
+            $('.layui-btn').on('click', function () {
+                var id,
+                    row = tree1.getRow();
+                if (row != null)
+                    id = row.id;
+
+                switch ($(this).attr('lay-filter')) {
+                    case 'expandAll': {
+                        tree1.expandAll(id)
+                    } break;
+                    case 'collapseAll': {
+                        tree1.collapseAll(id)
+                    } break;
+                    case 'expand': {
+                        tree1.expand(id)
+                    } break;
+                    case 'collapse': {
+                        tree1.collapse(id)
+                    } break;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

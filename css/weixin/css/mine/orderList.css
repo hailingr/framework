@@ -1,0 +1,47 @@
+.title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+}
+.yd-orderList-btn {
+    padding: 6px 8px;
+    background: #fff;
+    border: 1px solid #DDDDDD;
+    border-radius: 2px;
+    color: #FF8000;
+    float: right;
+    margin-right: 10px;
+}
+.yd-box-shadow{
+    box-shadow: 0 3px 8px #ccc;
+}
+.yd-orderList-title {
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.yd-orderList-box {
+    border-bottom: none;
+    padding-bottom: 10px;
+}
+.yd-fl{
+    float: left;
+}
+
+.yd-fr{
+    float: right;
+}
+.yd-ml-10{
+    margin-left: 10px;
+}
+.yd-pt-10{
+    padding-bottom: 10px;
+}
+.yd-font-14{
+    font-size: 14px;
+}
+.fav-m{
+    border:none;
+}

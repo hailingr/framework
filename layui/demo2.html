@@ -1,0 +1,274 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>LayIM测试</title>
+    <link rel="stylesheet" href="build/css/layui.css" media="all">
+</head>
+<body>
+<script>
+    var LAYIM_DATE_ERROR = '';
+</script>
+<script src="build/layui.js"></script>
+<script>
+    //客服模式
+    /*layui.use('layim', function(layim){
+
+     var layim = layui.layim;
+
+     layim.config({
+     //配置客户信息
+     mine: {
+     "username": "访客" //我的昵称
+     ,"id": "100000123" //我的ID
+     ,"status": "online" //在线状态 online：在线、hide：隐身
+     ,"remark": "在深邃的编码世界，做一枚轻盈的纸飞机" //我的签名
+     ,"avatar": "../images/logo.png" //我的头像
+     }
+     //开启客服模式
+     ,brief: true
+     });
+
+     //打开一个客服面板
+     layim.chat({
+     name: '在线客服一' //名称
+     ,type: 'kefu' //聊天类型
+     ,avatar: 'http://tp1.sinaimg.cn/5619439268/180/40030060651/1' //头像
+     ,id: 1111111 //定义唯一的id方便你处理信息
+     }).chat({
+     name: '在线客服二' //名称
+     ,type: 'kefu' //聊天类型
+     ,avatar: 'http://tp1.sinaimg.cn/5619439268/180/40030060651/1' //头像
+     ,id: 2222222 //定义唯一的id方便你处理信息
+     });
+     layim.setChatMin(); //收缩聊天面板
+
+     });*/
+
+    layui.use('layim', function (layim) {
+        var layim = layui.layim;
+
+        //自定义的回复
+        var autoReplay = [
+            '您好，我现在有事不在，一会再和您联系。',
+            '你没发错吧？face[微笑] ',
+            '洗澡中，请勿打扰，偷窥请购票，个体四十，团体八折，订票电话：一般人我不告诉他！face[哈哈] ',
+            '你好，我是主人的美女秘书，有什么事就跟我说吧，等他回来我会转告他的。face[心] face[心] face[心] ',
+            'face[威武] face[威武] face[威武] face[威武] ',
+            '<（@￣︶￣@）>',
+            '你要和我说话？你真的要和我说话？你确定自己想说吗？你一定非说不可吗？那你说吧，这是自动回复。',
+            'face[黑线]  你慢慢说，别急……',
+            '(*^__^*) face[嘻嘻] ，是贤心吗？'
+        ];
+
+        //基础配置
+        layim.config({
+            //初始化接口
+            init: {
+                url: 'lists2.json',
+                data: {}
+            }
+            //查看群员接口
+            ,members: {
+                url: 'members.json'
+                ,data: {}
+            }
+            ,uploadImage: {
+                url: 'uploadimg.json' //（返回的数据格式见下文）
+                ,type: '' //默认post
+            }
+            ,uploadFile: {
+                url: 'uploadfile.json' //（返回的数据格式见下文）
+                ,type: '' //默认post
+            }
+
+            //,skin: ['aaa.jpg'] //新增皮肤
+            //,isfriend: false //是否开启好友
+            ,isgroup: false //是否开启群组
+
+            ,chatLog: '/layim/demo/chatlog.html' //聊天记录地址
+            ,min:true,
+            title: '客服中心'
+            /*,find: '/layimdemo/find.html'*/
+        });
+        //+----------------------
+        //定义socket对象
+        var socket = new WebSocket('ws://localhost:8282');
+        //连接成功时触发
+        socket.onopen = function(data){
+            console.log('Socket Connect:');
+            //console.log(data);
+            //socket.send('XXX连接成功');
+            //socket.send('Hi Server, I am HAILIN!');
+            console.log('Socket ConnectEnd-----------------------------------');
+        };
+        //监听收到的消息
+        socket.onmessage = function(res){
+            console.log('Socket Get:');
+            console.log(res);
+            //res为接受到的值，如 {"emit": "messageName", "data": {}}
+            //emit即为发出的事件名，用于区分不同的消息
+            var e = JSON.parse(res.data);
+            switch (e.type) {
+
+               /* //好友上线 添加好友
+                case 'addList':
+                    addList(e);
+                    break;
+
+                //用户上线 把在线用户 加到好友列表
+                case 'regUser':
+                    regUser(e);
+                    break;
+
+                //用户离线移除好哟
+                case 'out':
+                    out(e);
+                    break;*/
+
+                //处理聊天消息
+                case 'getMessage':
+                    layim.getMessage(e.content);
+                    break;
+
+               /* //用户不在线
+                case 'notLine':
+                    notLine();
+                    break;
+
+                case 'js':
+                    console.log(e.cls);
+                    break;*/
+
+                default:
+                    console.log(e);
+
+            }
+
+
+            console.log('Socket GetEnd-----------------------------------');
+        };
+        socket.onclose = function(res){
+            console.log(res);
+        }
+
+        //用户上线 注册事件
+        var reg = {type: 'reg',content: {uid: '100001', type: 'friend', avatar: '../images/logo.png',username: '贤心', groupid: 1, id: '100001', sign: ''}};
+        setTimeout(function() {
+            console.log(reg);
+            var regg = JSON.stringify(reg);
+            console.log(regg);
+            socket.send(regg);
+        }, 1000);
+
+        //socket声明对象完毕
+        //+----------------------------------------
+
+
+        //监听发送消息
+        layim.on('sendMessage', function(data){
+            var To = data.to;
+            console.log('Send Logs:');
+            console.log(data);
+            //通过Socket 发送消息
+            socket.send(JSON.stringify({type:'chatMessage',content:data}));
+        });
+
+
+
+
+        //监听在线状态的切换事件
+        layim.on('online', function(data){
+            console.log(data);
+        });
+        //监听查看群员
+        layim.on('members', function(data){
+            console.log(data);
+        });
+
+        //监听聊天窗口的切换
+        layim.on('chatChange', function(data){
+            console.log(data);
+        });
+
+
+        //模拟接收到消息
+        /*setInterval(function(){
+            var rdata = {
+                username: "dddd"
+                ,avatar: "../images/logo.png"
+                ,id: "108101"
+                ,type: "friend"
+                ,content: "嗨，你好！本消息系离线消息。"
+                ,mine: false
+                ,timestamp: 1467475443306
+            };
+            layim.getMessage(rdata);
+            var rdata = {
+                username: "dddd"
+                ,avatar: "../images/logo.png"
+                ,id: "10034001"
+                ,type: "friend"
+                ,content: "11111嗨，你好！本消息系离线消息。"
+                ,mine: false
+                ,timestamp: 1467475443306
+            };
+            layim.getMessage(rdata);
+        },1000);*/
+        /*//基础配置
+        layim.config({
+            //获取主面板列表信息
+            init: {
+                url: 'lists.json' //接口地址（返回的数据格式见下文）
+                , type: 'get' //默认get，一般可不填
+                , data: {} //额外参数
+            }
+
+            //配置我的信息（如果设定了该参数，则优先读取该参数，如果没有，这读取init返回的mine信息）
+            , mine: {
+                "username": "LayIM体验者" //我的昵称
+                , "id": "100000123" //我的ID
+                , "status": "online" //在线状态 online：在线、hide：隐身
+                , "sign": "在深邃的编码世界，做一枚轻盈的纸飞机" //我的签名
+                , "avatar": "../images/logo.png" //我的头像
+            }
+            //获取群员接口
+            , members: {
+                url: 'members.json' //接口地址（返回的数据格式见下文）
+                , type: 'get' //默认get，一般可不填
+                , data: {} //额外参数
+            }
+
+            //上传图片接口（返回的数据格式见下文）
+            , uploadImage: {
+                url: 'upload.json' //接口地址（返回的数据格式见下文）
+                , type: 'post' //默认post
+            }
+
+            //上传文件接口（返回的数据格式见下文）
+            , uploadFile: {
+                url: 'upload.json' //接口地址（返回的数据格式见下文）
+                , type: 'post' //默认post
+            }
+
+            //增加皮肤选择，如果不想增加，可以剔除该项
+            *//*,skin: [
+             'http://xxx.com/skin.jpg',
+             ]*//*
+
+            , brief: false //是否简约模式（默认false，如果只用到在线客服，且不想显示主面板，可以设置 true）
+            , title: '我的LayIM' //主面板最小化后显示的名称
+            , min: false //用于设定主面板是否在页面打开时，始终最小化展现。默认false，即记录上次展开状态。
+            , minRight: null //【默认不开启】用户控制聊天面板最小化时、及新消息提示层的相对right的px坐标，如：minRight: '200px'
+            , maxLength: 3000 //最长发送的字符长度，默认3000
+            , isfriend: true //是否开启好友（默认true，即开启）
+            , isgroup: true //是否开启群组（默认true，即开启）
+            , right: '0px' //默认0px，用于设定主面板右偏移量。该参数可避免遮盖你页面右下角已经的bar。
+           *//* , chatLog: '/chat/log/' //聊天记录地址（如果未填则不显示）
+            , find: '/find/' //查找好友/群的地址（如果未填则不显示）*//*
+            , copyright: false //是否授权，如果通过官网捐赠获得LayIM，此处可填true
+        });*/
+    });
+</script>
+</body>
+</html>

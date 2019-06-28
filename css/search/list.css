@@ -1,0 +1,70 @@
+.bee-search-content {
+    height:50px;
+    border-bottom: #e5e5e5 1px solid;
+    width: 100%;
+    background-color: #fff;
+    padding-top: 18px;
+    padding-bottom: 10px;
+}
+.bee-search-row {
+    margin: 0 5%;
+    height: 40px;
+}
+.bee-search-input {
+    border-radius: 4px;
+    color:#5d5d5d;
+    border:1px solid #cacaca;
+    text-indent:4px;
+    font-size:14px;
+    width:96%;
+    height:38px;
+}
+.bee-search-btn {
+    height: 100%;
+    line-height:40px;
+    text-align:center;
+    padding:0 4px;
+    background: #4f4f4f;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 15px;
+}
+.bee-user-content {
+    margin-bottom: 80px;
+}
+.bee-user-face {
+    width:46px;
+    margin-right:14px;
+    display:block;
+    border-radius: 36px;
+}
+.bee-user-name {
+    color:#3f3f3f;
+    font-size: 16px;
+}
+.bee-user-description {
+    color: #5e5e5e;
+    font-size: 15px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    width: 100%
+}
+.bee-user-address {
+    color: #999;
+    font-size: 15px;
+}
+.weui_cells_access .weui_cell_ft:after {
+    border-color: #4f4f4f;
+    width: 10px;
+    height: 10px;
+    border-width: 1px 1px 0 0;
+}
+.weui_cell:before {
+    left: 0;
+}
+.weui_cell{
+    padding-top:15px;
+    padding-bottom: 15px;
+}
+

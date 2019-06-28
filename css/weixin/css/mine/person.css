@@ -1,0 +1,22 @@
+body,html{max-width: 440px;margin: auto;background:#f4f4f4;height: 100% }
+.head{  height:140px; overflow:hidden; background:url(/images/weixin/images/person/bei_top.jpg); background-size: cover; color:#fff;}
+.head .head-img{ text-align:center; }
+.head .head-img img{ width:80px; height:80px;border-radius: 40px;}
+.head .head-img p{ width:2.4rem; height:0.65rem; line-height:0.65rem; overflow:hidden; font-size:0.43rem;}
+.head .head-img p span{ width:1.2rem; text-align:center;}
+.head .head-img p span.line{ border-right:1px solid #b8b0aa; margin-right:0.25rem; padding-right:0.25rem;}
+.foot_bar_on{
+    color: #ff8000!important;
+}
+/*登录*/
+#login{height: 280px; width: 100%; font-size: 15px; }
+.btn_login{ margin-top: 30px; background: #F5F5F5}
+.login{margin-right: 5%; width: 40%; height: 40px; background: #ff8000; color:#fff;line-height: 40px; text-align: center; float: right; margin-left: 10%; border-radius: 5px; }
+.abolish{width: 40%; height: 40px; background: #BDBDBD;color: #fff ;line-height:40px; text-align: center; float: left; margin-left: 5%; border-radius: 5px}
+.ti_btn{color: white;}
+#text_login a{float: left; margin-top: 15px; margin-left: 5%; color: green;}
+.loginTitle{background: #FF8001; color: white; font-weight: bold}
+.loginTitle h3{font-weight: bold!important; font-size: 22px!important;}
+.hint{color: red; text-align: center; font-size: 5px!important;}
+.yd-pwd-border:before{left: 0}
+.yd-pwd-border{border-bottom: 1px solid #ECECEC;}

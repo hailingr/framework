@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <meta charset="utf-8" />
+    <link href="../layui/css/layui.css" rel="stylesheet" />
+    <script src="../jquery-1.10.2.min.js"></script>
+    <script src="../layui/layui.js"></script>
+</head>
+<body>
+    <div class="layui-btn-group">
+        <a class="layui-btn" lay-filter="1">第一页</a>
+        <a class="layui-btn" lay-filter="3">第3页</a>
+        <a class="layui-btn" lay-filter="s15">每行显示15条</a>
+        <a class="layui-btn" lay-filter="record">显示总记录数</a>
+        <a class="layui-btn" lay-filter="group">页码数量为0</a>
+    </div>
+    <div id="demo" class="grid">
+    </div>
+    <script id="view" type="text/html">
+        <table class="layui-table">
+            <thead>
+                <tr>
+                    <th style="width:20px;"><input type="checkbox" /></th>
+                    <th style="width:20px;">No</th>
+                    <th>组织结构</th>
+                    <th>名称</th>
+                    <th>编号</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{# layui.each(d.rows,function(i,r){ }}
+                <tr>
+                    <td class="text-center"><input type="checkbox" /></td>
+                    <td class="text-center">{{i+1}}</td>
+                    <td>{{r.title}}</td>
+                    <td>{{r.name}}</td>
+                    <td>{{r.code}}</td>
+                </tr>
+                {{# }); }}
+            </tbody>
+        </table>
+    </script>
+    <script>
+        layui.config({
+            base: '../extend/'
+        }).use(['laytpl', 'grid'], function () {
+            var laytpl = layui.laytpl,
+                grid = layui.grid;
+            grid.config.render = function (viewid, data) {
+                var view = document.getElementById(viewid).innerHTML;
+                return laytpl(view).render(data) || '';
+            };
+
+            console.log(grid.config);
+
+            var id = 1;
+            var rows = [];
+            for (var i = 1; i <= 99; i++) {
+                rows.push({
+                    id: id,
+                    title: '分公司' + i,
+                    name: 'CEO' + i,
+                    code: id,
+                    remark: ''
+                });
+                id++;
+            }
+
+            var grid1 = grid.createNew({
+                elem: 'demo',
+                view: 'view',
+                data: { rows: rows },
+                parentid: 'pid',
+                pageSize: 20,
+                singleSelect: true
+            });
+            grid1.build();
+
+            $('.layui-btn').on('click', function () {
+                switch ($(this).attr('lay-filter')) {
+                    case '1': {
+                        grid1.page = 1;
+                        grid1.build();
+                    } break;
+                    case '3': {
+                        grid1.page = 3;
+                        grid1.build();
+                    } break;
+                    case 's15': {
+                        grid1.pageSize = 15;
+                        grid1.build();
+                    } break;
+                    case 'record': {
+                        grid1.record = true;
+                        grid1.build();
+                    } break;
+                    case 'group': {
+                        grid1.pageGroup = 0;
+                        grid1.build();
+                    } break;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
